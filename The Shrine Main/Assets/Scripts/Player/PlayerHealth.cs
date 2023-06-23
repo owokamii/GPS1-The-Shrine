@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxThirst = 100;
-    public int currentThirst;
+    public float maxThirst = 100;
+    public float currentThirst;
 
     public ThirstBar thirstBar;
 
@@ -21,7 +21,10 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        //StartCoroutine(Drain());
+        if(gameObject.tag == "Player")
+        {
+            Dehydration();
+        }
 
         if (currentThirst < 0)
         {
@@ -29,45 +32,24 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    IEnumerator Drain()
-    {
-        Dehydration(1);
-        yield return new WaitForSeconds(5);
-    }
-
-    void Dehydration(int damage)
-    {
-        currentThirst -= damage;
-        thirstBar.SetThirst(currentThirst);
-    }
-
-    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Sunlight")
-        {
-            Debug.Log("dehydrating");
-            Dehydration(1);
-        }
-        if(collision.tag == "Enemy")
+        if (collision.tag == "Obstacles")
         {
             Die();
         }
-        if(collision.transform.tag == "Checkpoint")
+        if (collision.transform.tag == "Checkpoint")
         {
             spawnPoint = transform.position;
         }
     }
-    */
-    /*
-    private void OnTriggerStay2D(Collider2D collision)
+
+    void Dehydration()
     {
-        if(collision.tag == "Sunlight")
-        {
-            InvokeRepeating("Dehydration", 1, 1);
-        }
+        currentThirst -= 1 * Time.deltaTime;
+        thirstBar.SetThirst(currentThirst);
     }
-    */
+
     void Die()
     {
         Respawn();
