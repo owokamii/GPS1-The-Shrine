@@ -6,9 +6,8 @@ public class EnemyPatrol : MonoBehaviour
 {
     public GameObject pointA;
     public GameObject pointB;
+    public Transform currentPoint;
     private Rigidbody2D rb;
-    private Animator anim;
-    private Transform currentPoint;
     public float speed;
     public float idleTime = 1f; // Duration of idle time in seconds
     private bool isIdle = false;
@@ -18,9 +17,7 @@ public class EnemyPatrol : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
-        anim.SetBool("isRunning", true);
     }
 
     // Update is called once per frame
@@ -56,6 +53,7 @@ public class EnemyPatrol : MonoBehaviour
             if (idleTimer >= idleTime)
             {
                 StopIdleTimer();
+                ResumeMovement();
             }
         }
     }
@@ -65,6 +63,25 @@ public class EnemyPatrol : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isIdle && collision.gameObject.CompareTag("Objects"))
+        {
+            flip();
+            StopMovement();
+            StartIdleTimer();
+            // Switch the current point to the opposite one
+            if (currentPoint == pointA.transform)
+            {
+                currentPoint = pointB.transform;
+            }
+            else
+            {
+                currentPoint = pointA.transform;
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -77,16 +94,29 @@ public class EnemyPatrol : MonoBehaviour
     private void StartIdleTimer()
     {
         isIdle = true;
-        rb.velocity = Vector2.zero;
-        anim.SetBool("isRunning", false);
-        anim.SetBool("isIdle", true);
+        StopMovement();
         idleTimer = 0f;
     }
 
     private void StopIdleTimer()
     {
         isIdle = false;
-        anim.SetBool("isIdle", false);
-        anim.SetBool("isRunning", true);
+    }
+
+    private void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
+    private void ResumeMovement()
+    {
+        if (currentPoint == pointB.transform)
+        {
+            rb.velocity = new Vector2(speed, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector2(-speed, 0);
+        }
     }
 }
