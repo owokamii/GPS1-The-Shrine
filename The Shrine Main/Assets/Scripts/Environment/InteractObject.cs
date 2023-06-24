@@ -1,43 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class InteractObject : MonoBehaviour
 {
-    public bool isInRange;
-    public KeyCode interactKey;
-    public UnityEvent interactAction;
+    public UnityEvent _interactAction;
+    public KeyCode _interactKey;
 
-    void Start()
-    {
-        
-    }
+    private bool _inRange;
 
     void Update()
     {
-        if(isInRange)
-        {
-            if(Input.GetKeyDown(interactKey))
-            {
-                interactAction.Invoke();
-            }
-        }
+        if(_inRange)
+            if(Input.GetKeyDown(_interactKey))
+                _interactAction.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = true;
-        }
+            _inRange = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = false;
-        }
+            _inRange = false;
     }
 }

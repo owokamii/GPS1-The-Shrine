@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxThirst = 100;
-    public float currentThirst;
+    public float _maxThirst = 100;
+    public float _currentThirst;
 
-    public ThirstBar thirstBar;
+    public ThirstBar _thirstBar;
 
     private Transform currentCheckpoint;
-    Vector2 spawnPoint;
+    Vector2 _spawnPoint;
 
     void Start()
     {
-        spawnPoint = transform.position;
-        currentThirst = maxThirst;
-        thirstBar.SetMaxThirst(maxThirst);
+        _spawnPoint = transform.position;
+        _currentThirst = _maxThirst;
+        _thirstBar.SetMaxThirst(_maxThirst);
     }
 
     void Update()
     {
         if(gameObject.tag == "Player")
         {
-            Dehydration();
+            //Dehydration();
         }
 
-        if (currentThirst < 0)
+        if (_currentThirst <= 0)
         {
             Die();
         }
@@ -40,14 +40,20 @@ public class PlayerHealth : MonoBehaviour
         }
         if (collision.transform.tag == "Checkpoint")
         {
-            spawnPoint = transform.position;
+            _spawnPoint = transform.position;
         }
     }
 
     void Dehydration()
     {
-        currentThirst -= 1 * Time.deltaTime;
-        thirstBar.SetThirst(currentThirst);
+        _currentThirst -= 1 * Time.deltaTime;
+        _thirstBar.SetThirst(_currentThirst);
+    }
+
+    public void Hydration(float value)
+    {
+        _currentThirst += value;
+        _thirstBar.SetThirst(_currentThirst);
     }
 
     void Die()
@@ -57,6 +63,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Respawn()
     {
-        transform.position = spawnPoint;
+        transform.position = _spawnPoint;
+        _currentThirst = _maxThirst;
+        _thirstBar.SetMaxThirst(_maxThirst);
     }
 }

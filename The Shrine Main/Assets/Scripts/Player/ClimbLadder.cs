@@ -1,58 +1,50 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClimbLadder : MonoBehaviour
 {
-    private float vertical;
-    private float speed = 8f;
-    private bool isLadder;
+    public float _speed;
+    private Rigidbody2D _rb;
+    private float _inputHorizontal;
+    private float _inputVertical;
+    public float _distance;
+    public LayerMask _whatIsLadder;
     private bool isClimbing;
 
-    [SerializeField] private Rigidbody2D rb;
-
-    private Controller _controller;
-
-    private void Awake()
+    void Start()
     {
-        _controller = GetComponent<Controller>();
-    }
-    void Update()
-    {
-        vertical = Input.GetAxis("Vertical");
-        Debug.Log("i detect something");
-        if (isLadder && Mathf.Abs(vertical) > 0f)
-        {
-            isClimbing = true;
-        }
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (isClimbing)
+        _inputHorizontal = Input.GetAxisRaw("Horizontal");
+        _rb.velocity = new Vector2(_inputHorizontal * _speed, _rb.velocity.y);
+
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, _distance, _whatIsLadder);
+
+        if(hitInfo.collider != null)
         {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
+            Debug.Log("test1");
+            if(Input.GetKeyDown(KeyCode.W))
+            {
+                Debug.Log("test2");
+                isClimbing = true;
+            }
         }
 
-        else
+        if(isClimbing == true)
         {
-            rb.gravityScale = 3f;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            isLadder = true;
+            _inputVertical = Input.GetAxisRaw("Vertical");
+            _rb.velocity = new Vector2(_rb.position.x, _inputVertical * _speed);
+            _rb.gravityScale = 0;
+            Debug.Log("test3");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnDrawGizmos()
     {
-        if (collision.CompareTag("Ladder"))
-        {
-            isLadder = false;
-            isClimbing = false;
-        }
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * _distance);
     }
 }
