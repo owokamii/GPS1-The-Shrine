@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(gameObject.tag == "Player")
         {
-            //Dehydration();
+            Dehydration();
         }
 
         if (_currentThirst <= 0)
@@ -50,9 +50,10 @@ public class PlayerHealth : MonoBehaviour
         _thirstBar.SetThirst(_currentThirst);
     }
 
-    public void Hydration(float value)
-    {
-        _currentThirst += value;
+    
+    public void Hydration()
+    {  
+        _currentThirst += 10;
         _thirstBar.SetThirst(_currentThirst);
     }
 

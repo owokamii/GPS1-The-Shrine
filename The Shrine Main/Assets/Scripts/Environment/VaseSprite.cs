@@ -20,7 +20,8 @@ public class VaseSprite : MonoBehaviour
             isTriggered = true;
             _currentSprite.sprite = _newSprite;
             Debug.Log("vase sprite changed");
-            _playerHealth.Hydration(10);
+            
+            
         }
     }
 }
