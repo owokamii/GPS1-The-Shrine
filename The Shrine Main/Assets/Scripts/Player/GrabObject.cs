@@ -7,10 +7,17 @@ public class GrabObject : MonoBehaviour
 {
     public float distance = 0.7f;
     public LayerMask boxMask;
+    public Animator animator;
 
     public bool _grabbing;
 
     GameObject box;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
 
     void Update()
     {
@@ -23,12 +30,15 @@ public class GrabObject : MonoBehaviour
             box.GetComponent<ObjectPhysics>().beingPushed = true; //not so optimized
             box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
             _grabbing = true;
+            animator.SetBool("pushing", _grabbing = true);
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
            box.GetComponent<FixedJoint2D>().enabled = false;
            box.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
             _grabbing = false;
+            animator.SetBool("pushing", _grabbing = false);
+
         }
     }
 

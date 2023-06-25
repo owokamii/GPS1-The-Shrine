@@ -5,13 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-    //public Animator animator;
+    public Animator animator;
 
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        animator.SetBool("walk", horizontalMove != 0);
         jump = false;
     }
 }

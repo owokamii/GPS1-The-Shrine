@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 170843219}
   - component: {fileID: 170843227}
   - component: {fileID: 170843218}
+  - component: {fileID: 170843228}
   m_Layer: 0
   m_Name: Asher 2
   m_TagString: Player
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 170843222}
+  animator: {fileID: 0}
   runSpeed: 35
 --- !u!114 &170843222
 MonoBehaviour:
@@ -967,6 +969,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 170843223}
+--- !u!95 &170843228
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170843216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 631e6ff4c01c3c842aeb88dac6ba6e0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &196905153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1725,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1855,6 +1878,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c5393a1d8e3714ab4af288c23ccf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b842b5c59fab4694894a3e4366bf8f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followSpeed: 2
+  yOffset: 4
+  target: {fileID: 170843217}
+  maxY: 8
 --- !u!1 &532595627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1009338461}
+  animator: {fileID: 0}
   runSpeed: 25
 --- !u!114 &1009338461
 MonoBehaviour:
@@ -4977,7 +5017,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226878962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -7316,6 +7356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1722526586}
+  animator: {fileID: 0}
   runSpeed: 40
 --- !u!114 &1722526586
 MonoBehaviour:
