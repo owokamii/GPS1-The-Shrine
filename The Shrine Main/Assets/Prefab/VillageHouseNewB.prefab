@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6905838392196341265}
   - component: {fileID: 6905838392196341266}
   m_Layer: 0
-  m_Name: Village_House_New_2
+  m_Name: VillageHouseNewB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
