@@ -54,6 +54,9 @@ TagManager:
   - name: Platforms
     uniqueID: 500724485
     locked: 0
+  - name: Platform Front
+    uniqueID: 3816561263
+    locked: 0
   - name: Environment
     uniqueID: 3616763571
     locked: 0
