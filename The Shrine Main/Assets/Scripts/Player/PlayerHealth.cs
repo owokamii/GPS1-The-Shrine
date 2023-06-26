@@ -44,6 +44,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Die();
+        }
+    }
+
     void Dehydration()
     {
         _currentThirst -= 2 * Time.deltaTime;
