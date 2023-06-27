@@ -1,4 +1,3 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller), typeof(CollisionDataRetriever), typeof(Rigidbody2D))]
@@ -43,7 +42,7 @@ public class Move : MonoBehaviour
 
         _body.velocity = _velocity;
 
-        if(!_grabObject._grabbing)
+        if(!_grabObject._isPushing)
         {
             if (_direction.x > 0 && !_facingRight)
             {

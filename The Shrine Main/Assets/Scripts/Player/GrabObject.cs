@@ -1,50 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GrabObject : MonoBehaviour
 {
-    public float distance = 0.7f;
+    public float _distance = 1f;
     public LayerMask boxMask;
-    public Animator animator;
+    public bool _isPushing;
 
-    public bool _grabbing;
+    public Animator _animator;
 
     GameObject box;
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
-
 
     void Update()
     {
         Physics2D.queriesStartInColliders = false;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance, boxMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, _distance, boxMask);
         if (hit.collider != null && hit.collider.gameObject.tag == "Objects" && Input.GetKeyDown(KeyCode.LeftControl))
         {
             box = hit.collider.gameObject;
             box.GetComponent<FixedJoint2D>().enabled = true;
             box.GetComponent<ObjectPhysics>().beingPushed = true; //not so optimized
             box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
-            _grabbing = true;
-            animator.SetBool("pushing", _grabbing = true);
+            _isPushing = true;
+            _animator.SetBool("IsPushing", true);
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
            box.GetComponent<FixedJoint2D>().enabled = false;
            box.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
-            _grabbing = false;
-            animator.SetBool("pushing", _grabbing = false);
-
+            _isPushing = false;
+            _animator.SetBool("IsPushing", false);
         }
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * distance);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * _distance);
     }
 }

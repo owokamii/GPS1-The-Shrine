@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController2D controller;
-    public Animator animator;
+    public CharacterController2D _controller;
+    public ClimbLadder _climbLadder;
+    public GrabObject _grabObject;
+    public Animator _animator;
 
     public float runSpeed = 40f;
 
@@ -16,15 +18,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        //animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -49,14 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCrouching(bool isCrouching)
     {
-        //animator.SetBool("isCrouching", isCrouching);
+        _animator.SetBool("IsCrouching", isCrouching);
     }
 
     void FixedUpdate()
     {
-
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        animator.SetBool("walk", horizontalMove != 0);
+        _controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, _grabObject._isPushing, _climbLadder._isClimbing);
         jump = false;
     }
 }

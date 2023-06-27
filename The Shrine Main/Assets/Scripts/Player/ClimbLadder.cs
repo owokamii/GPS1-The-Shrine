@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class ClimbLadder : MonoBehaviour
 {
-    private float vertical;
-    private float speed = 2f;
-    private bool isLadder;
-    private bool isClimbing;
-
     [SerializeField] private Rigidbody2D _rb;
+
+    private float vertical;
+    private float speed = 3f;
+    private bool isLadder;
+    public bool _isClimbing;
+    public Animator _animator;
 
     void Update()
     {
@@ -15,13 +16,14 @@ public class ClimbLadder : MonoBehaviour
 
         if(isLadder)
         {
-            isClimbing = true;
+            _isClimbing = true;
+            _animator.SetBool("IsClimbing", true);
         }
     }
 
     private void FixedUpdate()
     {
-        if(isClimbing)
+        if(_isClimbing)
         {
             _rb.gravityScale = 0f;
             _rb.velocity = new Vector2(_rb.velocity.x, vertical * speed);
@@ -44,7 +46,7 @@ public class ClimbLadder : MonoBehaviour
     {
         if(collision.CompareTag("Ladder"))
         {
-            isClimbing = true;
+            _isClimbing = true;
         }
     }
 
@@ -53,7 +55,8 @@ public class ClimbLadder : MonoBehaviour
         if(collision.CompareTag("Ladder"))
         {
             isLadder = false;
-            isClimbing = false;
+            _isClimbing = false;
+            _animator.SetBool("IsClimbing", false);
         }
     }
 }
