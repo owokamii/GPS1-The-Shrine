@@ -9,8 +9,15 @@ public class FallingPlatform : MonoBehaviour
     private Quaternion initialRotation; // Store the initial rotation of the platform
     private bool isFalling = false; // Flag to check if the platform is already falling
 
+    Vector2 _spawnPoint;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltAngle = 30f; // Set the desired tilt angle
+
+    void Start()
+    {
+        _spawnPoint = transform.position;
+    }
 
     private void Awake()
     {
@@ -31,7 +38,8 @@ public class FallingPlatform : MonoBehaviour
         yield return new WaitForSeconds(fallDelay);
         rb.bodyType = RigidbodyType2D.Dynamic;
         StartCoroutine(Tilt());
-        Destroy(gameObject, destroyDelay);
+        yield return new WaitForSeconds(destroyDelay);
+        Respawn();
     }
 
     private IEnumerator Tilt()
@@ -47,5 +55,14 @@ public class FallingPlatform : MonoBehaviour
             transform.rotation = Quaternion.Lerp(initialRotation, targetRotation, t); // Interpolate the rotation towards the target tilt rotation
             yield return null;
         }
+    }
+
+    void Respawn()
+    {
+        Debug.Log("Platform respawn");
+        transform.position = _spawnPoint;
+        rb.bodyType = RigidbodyType2D.Static;
+        transform.rotation = initialRotation;
+        isFalling = false;
     }
 }

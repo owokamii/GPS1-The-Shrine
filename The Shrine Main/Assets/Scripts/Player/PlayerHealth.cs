@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public float _maxThirst = 100;
     public float _currentThirst;
+    
 
     public ThirstBar _thirstBar;
 
@@ -68,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Respawn();
+        
     }
 
     void Respawn()
