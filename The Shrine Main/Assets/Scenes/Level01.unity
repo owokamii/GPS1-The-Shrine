@@ -1259,7 +1259,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170843216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b31e9ccedc52d47a04c5a753d4322c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxThirst: 1000
+  _maxThirst: 100
   _currentThirst: 100
   _thirstBar: {fileID: 729563715}
 --- !u!114 &170843220
@@ -6540,7 +6540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 260000562349781212, guid: c74ffda8d03c2ab4687a390f595c5fb6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.63
+      value: -33.48
       objectReference: {fileID: 0}
     - target: {fileID: 260000562349781212, guid: c74ffda8d03c2ab4687a390f595c5fb6, type: 3}
       propertyPath: m_LocalPosition.y

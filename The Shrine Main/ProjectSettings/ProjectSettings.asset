@@ -16,7 +16,7 @@ PlayerSettings:
   productName: The Shrine
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.7411765, g: 0.6156863, b: 0.29803923, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.8470589, g: 0.8196079, b: 0.60784316, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
