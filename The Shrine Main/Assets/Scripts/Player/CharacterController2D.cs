@@ -28,6 +28,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
 
     public UnityEvent OnLandEvent;
+    public ParticleSystem dust;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -133,6 +134,7 @@ public class CharacterController2D : MonoBehaviour
             // Add a vertical force to the player.
             _grounded = false;
             _rb.AddForce(new Vector2(0f, _jumpForce));
+            CreateDust();
         }
     }
 
@@ -145,5 +147,12 @@ public class CharacterController2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        CreateDust();
     }
+
+    void CreateDust()
+    {
+        dust.Play();
+    }
+
 }
