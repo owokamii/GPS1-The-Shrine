@@ -4,7 +4,7 @@ public class ClimbLadder : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb;
 
-    private float vertical;
+    private float verticalMove;
     private float speed = 3f;
     private bool isLadder;
     public bool _isClimbing;
@@ -12,12 +12,12 @@ public class ClimbLadder : MonoBehaviour
 
     void Update()
     {
-        vertical = Input.GetAxis("Vertical");
+        verticalMove = Input.GetAxis("Vertical");
+        _animator.SetFloat("ClimbSpeed", Mathf.Abs(verticalMove));
 
-        if(isLadder)
+        if (isLadder)
         {
             _isClimbing = true;
-            _animator.SetBool("IsClimbing", true);
         }
     }
 
@@ -26,7 +26,8 @@ public class ClimbLadder : MonoBehaviour
         if(_isClimbing)
         {
             _rb.gravityScale = 0f;
-            _rb.velocity = new Vector2(_rb.velocity.x, vertical * speed);
+            _rb.velocity = new Vector2(_rb.velocity.x, verticalMove * speed);
+            _animator.SetBool("IsClimbing", true);
         }
         else
         {

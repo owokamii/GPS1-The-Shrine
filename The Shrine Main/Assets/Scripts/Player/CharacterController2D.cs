@@ -20,11 +20,11 @@ public class CharacterController2D : MonoBehaviour
     [Range(0, 1)][SerializeField] private float _crouchSpeed = .36f;
     //[SerializeField] private GrabObject _grabObject;
 
-    const float _groundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-    private bool _grounded;            // Whether or not the player is grounded.
-    const float _ceilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
+    const float _groundedRadius = .2f;
+    private bool _grounded;
+    const float _ceilingRadius = .2f;
     private Rigidbody2D _rb;
-    private bool _facingRight = true;  // For determining which way the player is currently facing.
+    private bool _facingRight = true;
     private Vector3 _velocity = Vector3.zero;
 
     public UnityEvent OnLandEvent;
@@ -89,7 +89,6 @@ public class CharacterController2D : MonoBehaviour
                     _wasCrouching = true;
                     OnCrouchEvent.Invoke(true);
                 }
-                // Reduce the speed by the crouchSpeed multiplier
                 move *= _crouchSpeed;
 
                 // Disable one of the colliders when crouching
@@ -101,7 +100,7 @@ public class CharacterController2D : MonoBehaviour
                 // Enable the collider when not crouching
                 if (_crouchDisableCollider != null)
                     _crouchDisableCollider.enabled = true;
-                Debug.Log("im not crouching");
+
                 if (_wasCrouching)
                 {
                     _wasCrouching = false;
@@ -116,12 +115,10 @@ public class CharacterController2D : MonoBehaviour
 
             if (!isPushing)
             {
-                // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !_facingRight)
                 {
                     Flip();
                 }
-                // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && _facingRight)
                 {
                     Flip();
@@ -129,7 +126,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         // If the player should jump...
-        if (_grounded && jump)
+        if (_grounded && jump && !_wasCrouching)
         {
             // Add a vertical force to the player.
             _grounded = false;
@@ -140,10 +137,8 @@ public class CharacterController2D : MonoBehaviour
 
     private void Flip()
     {
-        // Switch the way the player is labelled as facing.
         _facingRight = !_facingRight;
 
-        // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

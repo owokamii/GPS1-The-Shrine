@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float _maxThirst = 100;
     public float _currentThirst;
-    
+    public Animator _animator;
 
     public ThirstBar _thirstBar;
 
@@ -18,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
+        _animator.SetBool("FadeIn", true);
     }
 
     void Update()
@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
         if (collision.transform.tag == "Checkpoint")
         {
             _spawnPoint = transform.position;
@@ -68,14 +69,29 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Respawn();
-        
+        Invoke("FadeOut", 1);
+        Debug.Log("fadedout");
+        Invoke("Respawn", 3);
+        Debug.Log("respawned");
     }
 
     void Respawn()
     {
+        Invoke("FadeIn", 1);
         transform.position = _spawnPoint;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
+    }
+
+    void FadeOut()
+    {
+        _animator.SetBool("FadeOut", true);
+        _animator.SetBool("FadeIn", false);
+    }
+
+    void FadeIn()
+    {
+        _animator.SetBool("FadeIn", true);
+        _animator.SetBool("FadeOut", false);
     }
 }
