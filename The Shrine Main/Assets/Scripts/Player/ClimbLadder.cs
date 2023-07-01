@@ -6,7 +6,7 @@ public class ClimbLadder : MonoBehaviour
 
     private float verticalMove;
     private float speed = 3f;
-    private bool isLadder;
+    private bool _isLadder;
     public bool _isClimbing;
     public Animator _animator;
 
@@ -15,7 +15,7 @@ public class ClimbLadder : MonoBehaviour
         verticalMove = Input.GetAxis("Vertical");
         _animator.SetFloat("ClimbSpeed", Mathf.Abs(verticalMove));
 
-        if (isLadder)
+        if (_isLadder)
         {
             _isClimbing = true;
         }
@@ -39,7 +39,7 @@ public class ClimbLadder : MonoBehaviour
     {
         if(collision.CompareTag("Ladder"))
         {
-            isLadder = true;
+            _isLadder = true;
         }
     }
 
@@ -55,7 +55,7 @@ public class ClimbLadder : MonoBehaviour
     {
         if(collision.CompareTag("Ladder"))
         {
-            isLadder = false;
+            _isLadder = false;
             _isClimbing = false;
             _animator.SetBool("IsClimbing", false);
         }

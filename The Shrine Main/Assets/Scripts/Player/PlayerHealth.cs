@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
-        _animator.SetBool("FadeIn", true);
+        //_animator.SetBool("FadeIn", true);
     }
 
     void Update()
@@ -86,12 +86,10 @@ public class PlayerHealth : MonoBehaviour
     void FadeOut()
     {
         _animator.SetBool("FadeOut", true);
-        _animator.SetBool("FadeIn", false);
     }
 
     void FadeIn()
     {
-        _animator.SetBool("FadeIn", true);
         _animator.SetBool("FadeOut", false);
     }
 }

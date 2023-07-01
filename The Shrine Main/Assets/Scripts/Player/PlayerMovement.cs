@@ -26,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
+        if(horizontalMove == 0)
+        {
+            FindObjectOfType<AudioManager>().Play("PlayerWalk");
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
