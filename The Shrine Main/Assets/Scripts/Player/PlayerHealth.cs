@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
         //_animator.SetBool("FadeIn", true);
+        
     }
 
     void Update()
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
