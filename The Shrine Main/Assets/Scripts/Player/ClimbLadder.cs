@@ -23,7 +23,7 @@ public class ClimbLadder : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_isClimbing)
+        if (_isClimbing)
         {
             _rb.gravityScale = 0f;
             _rb.velocity = new Vector2(_rb.velocity.x, verticalMove * speed);
@@ -37,7 +37,7 @@ public class ClimbLadder : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Ladder"))
+        if (collision.CompareTag("Ladder"))
         {
             _isLadder = true;
         }
@@ -45,7 +45,7 @@ public class ClimbLadder : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("Ladder"))
+        if (collision.CompareTag("Ladder"))
         {
             _isClimbing = true;
         }
@@ -53,7 +53,7 @@ public class ClimbLadder : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Ladder"))
+        if (collision.CompareTag("Ladder"))
         {
             _isLadder = false;
             _isClimbing = false;

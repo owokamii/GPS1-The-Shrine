@@ -24,9 +24,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
         _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if(horizontalMove == 0)
+        if (horizontalMove == 0)
         {
             FindObjectOfType<AudioManager>().Play("PlayerWalk");
         }
