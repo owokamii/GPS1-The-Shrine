@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -59,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Dehydration()
     {
-        _currentThirst -= 2 * Time.deltaTime;
+        _currentThirst -= 1 * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
 
