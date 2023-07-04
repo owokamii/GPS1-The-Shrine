@@ -6981,7 +6981,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 7
 --- !u!212 &279330788
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7066,7 +7066,7 @@ MonoBehaviour:
   raycastDistance: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &279388319
 GameObject:
   m_ObjectHideFlags: 0
@@ -8899,7 +8899,7 @@ MonoBehaviour:
   raycastDistance: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!61 &626929972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8943,10 +8943,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!212 &626929974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9955,7 +9955,7 @@ MonoBehaviour:
   raycastDistance: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!61 &811456429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9999,10 +9999,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!212 &811456431
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14667,10 +14667,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!212 &1444495009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18989,9 +18989,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!212 &1881841457
 SpriteRenderer:
@@ -19346,7 +19346,7 @@ MonoBehaviour:
   raycastDistance: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!61 &1904728963
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19390,10 +19390,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!212 &1904728965
 SpriteRenderer:
   m_ObjectHideFlags: 0

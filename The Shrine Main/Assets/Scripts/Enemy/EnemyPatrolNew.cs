@@ -22,21 +22,24 @@ public class EnemyPatrolNew : MonoBehaviour
     {
         if (!isColliding)
         {
-            if (isMovingRight)
+            // Calculate the movement direction
+            Vector2 movementDirection = isMovingRight ? Vector2.right : Vector2.left;
+
+            // Calculate the next position based on the movement direction and speed
+            Vector2 nextPosition = (Vector2)transform.position + (movementDirection * patrolSpeed * Time.deltaTime);
+
+            // Perform a raycast to check for obstacles in the movement direction
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, movementDirection, raycastDistance, obstacleLayer);
+
+            // If an obstacle is detected or the enemy reaches the patrol distance, flip its direction
+            if (hit.collider != null || Mathf.Abs(nextPosition.x - initialPosition.x) >= patrolDistance)
             {
-                transform.Translate(Vector2.right * patrolSpeed * Time.deltaTime);
-                if (transform.position.x >= initialPosition.x + patrolDistance || CheckObstacleAhead())
-                {
-                    Flip();
-                }
+                Flip();
             }
             else
             {
-                transform.Translate(Vector2.left * patrolSpeed * Time.deltaTime);
-                if (transform.position.x <= initialPosition.x - patrolDistance || CheckObstacleAhead())
-                {
-                    Flip();
-                }
+                // Move the enemy to the next position
+                transform.position = nextPosition;
             }
         }
     }
@@ -47,13 +50,11 @@ public class EnemyPatrolNew : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-    }
 
-    private bool CheckObstacleAhead()
-    {
-        Vector2 raycastDirection = isMovingRight ? Vector2.right : Vector2.left;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, raycastDirection, raycastDistance, obstacleLayer);
-        return hit.collider != null;
+        // Adjust the position slightly to avoid getting stuck in corners
+        Vector3 newPosition = transform.position;
+        newPosition.x += isMovingRight ? 0.1f : -0.1f;
+        transform.position = newPosition;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
