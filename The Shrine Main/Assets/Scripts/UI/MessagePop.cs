@@ -10,7 +10,7 @@ public class MessagePop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Message Popping");
+            Debug.Log("Message Popping"); // Dunno why its not even triggering , why ?
             message.SetActive(true);
         }
     }
