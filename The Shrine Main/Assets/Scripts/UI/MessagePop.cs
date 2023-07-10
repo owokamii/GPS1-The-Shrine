@@ -13,6 +13,11 @@ public class MessagePop : MonoBehaviour
             Debug.Log("Message Popping"); // Dunno why its not even triggering , why ?
             message.SetActive(true);
         }
+        if (collision.gameObject.tag == "Immortal")
+        {
+            Debug.Log("Message Popping"); // Dunno why its not even triggering , why ?
+            message.SetActive(true);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -21,6 +26,14 @@ public class MessagePop : MonoBehaviour
             Debug.Log("Message  not Popping");
             message.SetActive(false);
         }
+        if (collision.gameObject.tag == "Immortal")
+        {
+            Debug.Log("Message  not Popping"); // Dunno why its not even triggering , why ?
+            message.SetActive(false);
+        }
     }
+
+
+   
 
 }

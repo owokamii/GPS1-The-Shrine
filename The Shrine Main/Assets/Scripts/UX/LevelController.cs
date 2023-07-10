@@ -6,6 +6,7 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] FlashImage _flashImage = null;
     [SerializeField] Color _newColor = Color.red;
+    [SerializeField] private AudioSource heartbeatSoundEffect;
 
     private PlayerHealth _playerHealth; // Reference to the PlayerHealth component
 
@@ -25,7 +26,7 @@ public class LevelController : MonoBehaviour
     {
         if (_playerHealth != null && _playerHealth._currentThirst <= 50)
         {
-           
+            heartbeatSoundEffect.Play();
             _flashImage.StartFlash(.5f, .5f, _newColor);
         }
     }
