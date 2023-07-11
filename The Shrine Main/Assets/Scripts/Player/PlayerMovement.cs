@@ -23,13 +23,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
-        _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if(gameObject.tag != "Dead")
+        {
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        }
 
         if (horizontalMove == 0)
         {
-            FindObjectOfType<AudioManager>().Play("PlayerWalk");
+            //FindObjectOfType<AudioManager>().Play("PlayerWalk");
         }
 
         if (Input.GetButtonDown("Jump"))

@@ -6,7 +6,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public float _maxThirst = 100;
     public float _currentThirst;
-    public Animator _animator;
+    public Animator _screenAnimator;
+    public Animator _playerAnimator;
 
     public ThirstBar _thirstBar;
 
@@ -18,7 +19,6 @@ public class PlayerHealth : MonoBehaviour
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
-        //_animator.SetBool("FadeIn", true);
         
     }
 
@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Obstacles")
+        if (collision.gameObject.CompareTag("Obstacles"))
         {
             Die();
         }
@@ -72,15 +72,17 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        gameObject.tag = "Dead";
+        _playerAnimator.SetBool("Dead", true);
         Invoke("FadeOut", 1);
-        Debug.Log("fadedout");
         Invoke("Respawn", 3);
-        Debug.Log("respawned");
     }
 
     void Respawn()
     {
         Invoke("FadeIn", 1);
+        gameObject.tag = "Player";
+        _playerAnimator.SetBool("Dead", false);
         transform.position = _spawnPoint;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
@@ -88,11 +90,11 @@ public class PlayerHealth : MonoBehaviour
 
     void FadeOut()
     {
-        _animator.SetBool("FadeOut", true);
+        _screenAnimator.SetBool("FadeOut", true);
     }
 
     void FadeIn()
     {
-        _animator.SetBool("FadeOut", false);
+        _screenAnimator.SetBool("FadeOut", false);
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Immortal
   - Sunlight
   - Obstacles
+  - Dead
   layers:
   - Default
   - TransparentFX
@@ -51,11 +52,11 @@ TagManager:
   - name: Background
     uniqueID: 824240913
     locked: 0
-  - name: Platforms
-    uniqueID: 500724485
-    locked: 0
-  - name: Platform Front
+  - name: PlatformMid
     uniqueID: 3816561263
+    locked: 0
+  - name: PlatformTop
+    uniqueID: 500724485
     locked: 0
   - name: Environment
     uniqueID: 3616763571
