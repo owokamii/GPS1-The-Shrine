@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
+    public Transform grabCheck;
     public float _distance = 1f;
     public LayerMask boxMask;
     public bool _isPushing;
+
 
     public Animator _animator;
 
@@ -30,6 +32,9 @@ public class GrabObject : MonoBehaviour
             _isPushing = false;
             _animator.SetBool("IsPushing", false);
         }
+
+        Debug.Log(hit.collider.gameObject);
+        Debug.Log(hit.collider.gameObject.tag);
     }
 
     void OnDrawGizmos()
