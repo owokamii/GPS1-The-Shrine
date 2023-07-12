@@ -32,9 +32,6 @@ public class GrabObject : MonoBehaviour
             _isPushing = false;
             _animator.SetBool("IsPushing", false);
         }
-
-        Debug.Log(hit.collider.gameObject);
-        Debug.Log(hit.collider.gameObject.tag);
     }
 
     void OnDrawGizmos()

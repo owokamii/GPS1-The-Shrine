@@ -18,7 +18,6 @@ public class CharacterController2D : MonoBehaviour
 
     //crouch
     [Range(0, 1)][SerializeField] private float _crouchSpeed = .36f;
-    //[SerializeField] private GrabObject _grabObject;
 
     const float _groundedRadius = .2f;
     private bool _grounded;
@@ -131,7 +130,6 @@ public class CharacterController2D : MonoBehaviour
         // If the player should jump...
         if (_grounded && jump && !_wasCrouching)
         {
-            // Add a vertical force to the player.
             _grounded = false;
             _rb.AddForce(new Vector2(0f, _jumpForce));
             CreateDust();
@@ -145,6 +143,7 @@ public class CharacterController2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+
         CreateDust();
     }
 

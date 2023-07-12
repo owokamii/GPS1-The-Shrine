@@ -27,26 +27,26 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        }
 
-        if (horizontalMove == 0)
-        {
-            //FindObjectOfType<AudioManager>().Play("PlayerWalk");
-        }
+            if (horizontalMove == 0)
+            {
+                //FindObjectOfType<AudioManager>().Play("PlayerWalk");
+            }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            jump = true;
-            //animator.SetBool("isJumping", true);
-        }
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+                //animator.SetBool("isJumping", true);
+            }
 
-        if (Input.GetButtonDown("Crouch"))
-        {
-            crouch = true;
-        }
-        else if (Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
+            if (Input.GetButtonDown("Crouch"))
+            {
+                crouch = true;
+            }
+            else if (Input.GetButtonUp("Crouch"))
+            {
+                crouch = false;
+            }
         }
     }
 
