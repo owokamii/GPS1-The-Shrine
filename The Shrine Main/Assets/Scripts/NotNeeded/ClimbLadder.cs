@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class ClimbLadder : MonoBehaviour
 {
@@ -60,4 +60,4 @@ public class ClimbLadder : MonoBehaviour
             _animator.SetBool("IsClimbing", false);
         }
     }
-}
+}*/

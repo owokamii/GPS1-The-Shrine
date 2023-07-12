@@ -12,6 +12,7 @@ TagManager:
   - Sunlight
   - Obstacles
   - Dead
+  - Ground
   layers:
   - Default
   - TransparentFX

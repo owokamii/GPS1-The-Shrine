@@ -1,8 +1,7 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
-    public Transform grabCheck;
     public float _distance = 1f;
     public LayerMask boxMask;
     public bool _isPushing;
@@ -16,7 +15,7 @@ public class GrabObject : MonoBehaviour
     {
         Physics2D.queriesStartInColliders = false;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, _distance, boxMask);
-        if (hit.collider != null && hit.collider.gameObject.tag == "Objects" && Input.GetKeyDown(KeyCode.LeftControl))
+        if (hit.collider != null && hit.collider.gameObject.tag == "Objects" && Input.GetButtonDown("Grab"))
         {
             box = hit.collider.gameObject;
             box.GetComponent<FixedJoint2D>().enabled = true;
@@ -25,7 +24,7 @@ public class GrabObject : MonoBehaviour
             _isPushing = true;
             _animator.SetBool("IsPushing", true);
         }
-        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        else if(Input.GetButtonUp("Grab"))
         {
            box.GetComponent<FixedJoint2D>().enabled = false;
            box.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
@@ -36,7 +35,7 @@ public class GrabObject : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.cyan;
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * _distance);
     }
-}
+}*/

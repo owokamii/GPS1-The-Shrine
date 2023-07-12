@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 [RequireComponent(typeof(Controller), typeof(CollisionDataRetriever), typeof(Rigidbody2D))]
 public class Move : MonoBehaviour
@@ -63,4 +63,4 @@ public class Move : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-}
+}*/

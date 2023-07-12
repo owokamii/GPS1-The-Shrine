@@ -3,37 +3,39 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+    //references
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Transform _ceilingCheck;
+    [SerializeField] private Transform _neckCheck;
     [SerializeField] private Collider2D _crouchDisableCollider;
-    [SerializeField] private Animator _animator;
 
     //walk
     [Range(0, .3f)][SerializeField] private float _movementSmoothing = .05f;
 
+    //crouch
+    [Range(0, 1)][SerializeField] private float _crouchSpeed = .4f;
+
     //jump
-    [SerializeField] private float _jumpForce = 400f;
+    [SerializeField] private float _jumpForce = 550f;
     [SerializeField] private bool _airControl = false;
 
-    //crouch
-    [Range(0, 1)][SerializeField] private float _crouchSpeed = .36f;
-
     const float _groundedRadius = .2f;
-    private bool _grounded;
     const float _ceilingRadius = .2f;
+    const float _neckRadius = .1f;
     private Rigidbody2D _rb;
     private bool _facingRight = true;
+    private bool _wasCrouching = false;
+    private bool _grounded;
     private Vector3 _velocity = Vector3.zero;
 
-    public UnityEvent OnLandEvent;
+    //events and particles
     public ParticleSystem dust;
+    public UnityEvent OnLandEvent;
+    public BoolEvent OnCrouchEvent;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
-
-    public BoolEvent OnCrouchEvent;
-    private bool _wasCrouching = false;
 
     private void Awake()
     {
@@ -44,6 +46,21 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
+    }
+
+    private void Update()
+    {
+        Debug.DrawRay(_neckCheck.position, _neckCheck.TransformDirection(Vector2.up) * 1f, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(_neckCheck.position, _neckCheck.TransformDirection(Vector2.up), 1f);
+
+        if (hit.collider.gameObject.CompareTag("Ground"))
+        {
+            _crouchDisableCollider.enabled = false;
+        }
+        else
+        {
+            _crouchDisableCollider.enabled = true;
+        }
     }
 
     private void FixedUpdate()
@@ -65,7 +82,7 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    public void Move(float move, bool crouch, bool jump, bool isPushing, bool isClimbing)
+    public void Move(float move, bool crouch, bool jump, bool isPushing)
     {
         // If crouching, check to see if the character can stand up
         if (!crouch)
@@ -73,7 +90,7 @@ public class CharacterController2D : MonoBehaviour
             // If the character has a ceiling preventing them from standing up, keep them crouching
             if (Physics2D.OverlapCircle(_ceilingCheck.position, _ceilingRadius, _whatIsGround))
             {
-                if(_grounded)
+                if (_grounded)
                 {
                     crouch = true;
                 }
@@ -81,34 +98,38 @@ public class CharacterController2D : MonoBehaviour
         }
 
         //only control the player if grounded or airControl is turned on
-        if (_grounded || _airControl)
+        if (_airControl)
         {
-            // If crouching
-            if (crouch)
+            if(_grounded)
             {
-                if (!_wasCrouching)
+                // If crouching
+                if (crouch)
                 {
-                    _wasCrouching = true;
-                    OnCrouchEvent.Invoke(true);
+                    if (!_wasCrouching)
+                    {
+                        _wasCrouching = true;
+                        OnCrouchEvent.Invoke(true);
+                    }
+                    move *= _crouchSpeed;
+
+                    // Disable one of the colliders when crouching
+                    if (_crouchDisableCollider != null)
+                        _crouchDisableCollider.enabled = false;
                 }
-                move *= _crouchSpeed;
-
-                // Disable one of the colliders when crouching
-                if (_crouchDisableCollider != null)
-                    _crouchDisableCollider.enabled = false;
-            }
-            else
-            {
-                // Enable the collider when not crouching
-                if (_crouchDisableCollider != null)
-                    _crouchDisableCollider.enabled = true;
-
-                if (_wasCrouching)
+                else
                 {
-                    _wasCrouching = false;
-                    OnCrouchEvent.Invoke(false);
+                    // Enable the collider when not crouching
+                    if (_crouchDisableCollider != null)
+                        _crouchDisableCollider.enabled = true;
+
+                    if (_wasCrouching)
+                    {
+                        _wasCrouching = false;
+                        OnCrouchEvent.Invoke(false);
+                    }
                 }
             }
+            
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, _rb.velocity.y);
@@ -128,7 +149,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         // If the player should jump...
-        if (_grounded && jump && !_wasCrouching)
+        if (_grounded && jump && !crouch)
         {
             _grounded = false;
             _rb.AddForce(new Vector2(0f, _jumpForce));
