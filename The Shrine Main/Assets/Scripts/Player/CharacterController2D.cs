@@ -53,14 +53,14 @@ public class CharacterController2D : MonoBehaviour
         Debug.DrawRay(_neckCheck.position, _neckCheck.TransformDirection(Vector2.up) * 1f, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(_neckCheck.position, _neckCheck.TransformDirection(Vector2.up), 1f);
 
-        if (hit.collider.gameObject.CompareTag("Ground"))
+        /*if (hit.collider.gameObject.CompareTag("Ground"))
         {
             _crouchDisableCollider.enabled = false;
         }
         else
         {
             _crouchDisableCollider.enabled = true;
-        }
+        }*/
     }
 
     private void FixedUpdate()

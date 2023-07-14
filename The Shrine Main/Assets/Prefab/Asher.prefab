@@ -260,7 +260,7 @@ MonoBehaviour:
   _currentThirst: 100
   _screenAnimator: {fileID: 0}
   _playerAnimator: {fileID: 5002244680073957571}
-  _thirstBar: {fileID: 0}
+  _thirstBar: {fileID: 6867878259609502199, guid: b385c740c97a2104781d527db8fd9425, type: 3}
 --- !u!114 &5002244680073957570
 MonoBehaviour:
   m_ObjectHideFlags: 0
