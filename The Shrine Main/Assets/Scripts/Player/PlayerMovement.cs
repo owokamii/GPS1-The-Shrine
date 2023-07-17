@@ -1,6 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -27,7 +24,13 @@ public class PlayerMovement : MonoBehaviour
     public float _distance = 1f;
     bool _isPushing;
 
+    AudioManager audioManager;
     GameObject box;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Update()
     {
@@ -69,6 +72,14 @@ public class PlayerMovement : MonoBehaviour
 
             Physics2D.queriesStartInColliders = false;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, _distance, boxMask);
+            RaycastHit2D ground = Physics2D.Raycast(transform.position, Vector2.down * transform.localScale.x, _distance, boxMask);
+            Debug.Log(ground.collider.gameObject.layer);
+
+            if(ground.collider.gameObject.layer == 9)
+            {
+                _isClimbing = false;
+            }
+
             if (hit.collider != null && hit.collider.gameObject.tag == "Objects" && Input.GetButtonDown("Grab"))
             {
                 box = hit.collider.gameObject;
@@ -77,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
                 _isPushing = true;
                 _animator.SetBool("IsPushing", true);
+                audioManager.PlaySFX(audioManager.sfx[0]);
             }
             else if (Input.GetButtonUp("Grab"))
             {
@@ -124,7 +136,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             _isLadder = true;
-            _isClimbing = true;
+            if(Input.GetButtonDown("Vertical"))
+            {
+                _isClimbing = true;
+            }
         }
     }
 
@@ -134,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Ladder"))
         {
             //probably use raycast to detect if theres a ground, if there is: animation false, if there isn't: animation true
+            _isClimbing = true;
+            _animator.SetBool("IsClimbing", true);
         }
     }
 
