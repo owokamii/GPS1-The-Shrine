@@ -60,6 +60,9 @@ TagManager:
   - name: PlatformTop
     uniqueID: 500724485
     locked: 0
+  - name: PlatformFront
+    uniqueID: 1058407481
+    locked: 0
   - name: Environment
     uniqueID: 3616763571
     locked: 0
