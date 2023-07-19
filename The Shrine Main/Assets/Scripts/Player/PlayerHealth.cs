@@ -7,7 +7,6 @@ public class PlayerHealth : MonoBehaviour
     public float _maxThirst = 100;
     public float _currentThirst;
     public Animator _screenAnimator;
-    public Animator _playerAnimator;
 
     public ThirstBar _thirstBar;
 
@@ -59,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Dehydration()
     {
-        _currentThirst -= 1 * Time.deltaTime;
+        _currentThirst -= 1.5f * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
 
@@ -73,16 +72,14 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         gameObject.tag = "Dead";
-        _playerAnimator.SetBool("Dead", true);
         Invoke("FadeOut", 1);
         Invoke("Respawn", 3);
     }
 
     void Respawn()
     {
-        Invoke("FadeIn", 1);
+        Invoke("FadeIn", 2);
         gameObject.tag = "Player";
-        _playerAnimator.SetBool("Dead", false);
         transform.position = _spawnPoint;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     //walk
     private float horizontalMove;
-    private float runSpeed = 30f;
+    public float runSpeed;
     bool jump = false;
     bool crouch = false;
 
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -38,12 +38,21 @@ public class PlayerMovement : MonoBehaviour
         //if player is not dead
         if(gameObject.tag != "Dead")
         {
-            //left and right movement and the animation
-            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-            _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            _animator.SetBool("Dead", false);
+            if (!_isPushing)
+            {
+                runSpeed = 25f;
+                horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            }
+            else
+            {
+                runSpeed = 10f;
+                horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            }
 
             //up and down movement and the animation
             verticalMove = Input.GetAxis("Vertical");
+            _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
             _animator.SetFloat("ClimbSpeed", Mathf.Abs(verticalMove));
 
             if (_isLadder)
@@ -102,6 +111,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        else if(gameObject.tag == "Dead")
+        {
+            horizontalMove = 0f;
+            _animator.SetBool("Dead", true);
+        }
     }
 
     public void OnLanding()
@@ -119,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, _isPushing);
         jump = false;
 
-        if (_isClimbing)
+        if (_isClimbing && gameObject.tag != "Dead")
         {
             _rb.gravityScale = 0f;
             _rb.velocity = new Vector2(_rb.velocity.x, verticalMove * climbSpeed);

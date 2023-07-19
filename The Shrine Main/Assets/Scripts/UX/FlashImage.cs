@@ -65,7 +65,7 @@ public class FlashImage : MonoBehaviour
         //while (true)
         //{
             // animate the flash in
-            float flashInDuration = secondsForOneFlash / 2;
+            float flashInDuration = secondsForOneFlash / 1;
             for (float t = 0; t <= flashInDuration; t += Time.deltaTime)
             {
                 Color colorThisFrame = _image.color;
@@ -75,7 +75,7 @@ public class FlashImage : MonoBehaviour
             }
 
             // animate the flash out
-            float flashOutDuration = secondsForOneFlash / 2;
+            float flashOutDuration = secondsForOneFlash / 1;
             for (float t = 0; t <= flashOutDuration; t += Time.deltaTime)
             {
                 Color colorThisFrame = _image.color;
