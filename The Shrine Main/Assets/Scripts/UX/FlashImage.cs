@@ -86,7 +86,7 @@ public class FlashImage : MonoBehaviour
 
             _image.color = new Color32(0, 0, 0, 0);
 
-            yield return new WaitForSeconds(2f); // Wait for 3 seconds before starting the next flash
+            yield return new WaitForSeconds(4f); // Wait for 3 seconds before starting the next flash
         //}
          //FindObjectOfType<AudioManager>().Play("Heartbeat");
     }

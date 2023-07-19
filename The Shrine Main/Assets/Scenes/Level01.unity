@@ -4960,7 +4960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashImage: {fileID: 2002559227}
-  _newColor: {r: 0, g: 0, b: 0, a: 0.6666667}
+  _newColor: {r: 0.21698111, g: 0.18914203, b: 0.18914203, a: 0.6666667}
   heartbeatSoundEffect: {fileID: 683155352}
 --- !u!4 &683155351
 Transform:

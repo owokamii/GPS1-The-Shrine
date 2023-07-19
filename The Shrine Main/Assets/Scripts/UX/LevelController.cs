@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("CheckThirstAndFlash", 0f, 2f);
+        InvokeRepeating("CheckThirstAndFlash", 0f, 4f);
     }
 
     // Method to check thirst and trigger the flash effect
