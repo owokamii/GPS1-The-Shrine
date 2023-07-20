@@ -24,7 +24,7 @@ public class LevelController : MonoBehaviour
     // Method to check thirst and trigger the flash effect
     private void CheckThirstAndFlash()
     {
-        if (_playerHealth != null && _playerHealth._currentThirst <= 50)
+        if (_playerHealth != null && _playerHealth._currentThirst <= 30)
         {
             heartbeatSoundEffect.Play();
             _flashImage.StartFlash(.5f, .5f, _newColor);

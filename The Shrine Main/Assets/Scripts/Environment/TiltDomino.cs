@@ -8,12 +8,14 @@ public class TiltDomino : MonoBehaviour
     private float destroyDelay = 1.5f;
     private Quaternion initialRotation; // Store the initial rotation of the platform
     private bool isFalling = false; // Flag to check if the platform is already falling
+    private Animator animator;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float tiltAngle = 30f; // Set the desired tilt angle
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         initialRotation = transform.rotation; // Store the initial rotation
     }
 
@@ -21,6 +23,7 @@ public class TiltDomino : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isFalling)
         {
+            animator.SetTrigger("Stepped");
             StartCoroutine(Fall());
         }
     }
