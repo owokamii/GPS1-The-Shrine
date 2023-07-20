@@ -176,11 +176,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2800233611445473143}
   sfxSource: {fileID: 2800233611300276298}
+  musicc:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
   music:
-  - {fileID: 8300000, guid: a5b21091bfefdbc4fb8268099527d65d, type: 3}
+  - {fileID: 8300000, guid: 8f03e86b11103cb40853ee22939e3312, type: 3}
   sfx:
+  - {fileID: 8300000, guid: 1983254b36c160f4e9be4092f7919f0d, type: 3}
   - {fileID: 8300000, guid: c1a2e42d8b7188c44828dc4565a51562, type: 3}
-  - {fileID: 8300000, guid: 90722e71b68a1f54e9c00588cb115938, type: 3}
 --- !u!1 &2800233611445473141
 GameObject:
   m_ObjectHideFlags: 0

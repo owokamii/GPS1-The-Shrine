@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
 
+    public Audio[] musicc;
     public AudioClip[] music;
     public AudioClip[] sfx;
 

@@ -60,11 +60,6 @@ public class PlayerMovement : MonoBehaviour
                 _isClimbing = true;
             }
 
-            if (horizontalMove == 0)
-            {
-                //FindObjectOfType<AudioManager>().Play("PlayerWalk");
-            }
-
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
@@ -100,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                     crate.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
                     _isPushing = true;
                     _animator.SetBool("IsPushing", true);
-                    audioManager.PlaySFX(audioManager.sfx[0]);
+                    audioManager.PlaySFX(audioManager.sfx[1]);
                 }
                 else if (Input.GetButtonUp("Grab"))
                 {
@@ -132,6 +127,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, _isPushing);
         jump = false;
+
+        if (horizontalMove != 0)
+        {
+            audioManager.PlaySFX(audioManager.sfx[0]);
+        }
 
         if (_isClimbing && gameObject.tag != "Dead")
         {
