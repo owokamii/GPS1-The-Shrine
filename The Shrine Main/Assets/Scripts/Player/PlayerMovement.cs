@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     //walk
     private float horizontalMove;
-    public float runSpeed;
+    private float runSpeed;
     bool jump = false;
     bool crouch = false;
 
@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     AudioManager audioManager;
     GameObject crate;
 
+    const float timeBetweenFootsteps = 0.65f;
+    float lastPlayedFootstepSoundTime = -timeBetweenFootsteps;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -36,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //if player is not dead
-        if(gameObject.tag != "Dead")
+        if (gameObject.tag != "Dead")
         {
             _animator.SetBool("Dead", false);
             if (!_isPushing)
@@ -95,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
                     crate.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
                     _isPushing = true;
                     _animator.SetBool("IsPushing", true);
-                    audioManager.PlaySFX(audioManager.sfx[1]);
+                    //audioManager.PlaySFX(audioManager.sfx[0]);
                 }
                 else if (Input.GetButtonUp("Grab"))
                 {
@@ -127,10 +130,15 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, _isPushing);
         jump = false;
-
+        
+        //footsteps sound
         if (horizontalMove != 0)
         {
-            audioManager.PlaySFX(audioManager.sfx[0]);
+            if(Time.timeSinceLevelLoad - lastPlayedFootstepSoundTime > timeBetweenFootsteps)
+            {
+                audioManager.PlaySFX(audioManager.sfx[0]);
+                lastPlayedFootstepSoundTime = Time.timeSinceLevelLoad;
+            }
         }
 
         if (_isClimbing && gameObject.tag != "Dead")

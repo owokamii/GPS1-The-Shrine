@@ -28,6 +28,7 @@ public class Door : MonoBehaviour
 
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
         {
+            GetComponent<SpriteRenderer>().color = Color.green;
             door.enabled = false;
         }
     }

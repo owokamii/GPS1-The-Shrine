@@ -11,4 +11,7 @@ public class Audio
     public float volume;
     [Range(.1f, 3f)]
     public float pitch;
+
+    [HideInInspector] public AudioSource musicSource;
+    [HideInInspector] public AudioSource sfxSource;
 }
