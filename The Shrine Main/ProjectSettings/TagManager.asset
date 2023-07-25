@@ -21,11 +21,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - Objects
   - Ladder
   - Ground
-  - 
+  - HeatHazeEffect
   - 
   - 
   - 
@@ -68,6 +68,9 @@ TagManager:
     locked: 0
   - name: Midground
     uniqueID: 3654045009
+    locked: 0
+  - name: HeatHaze
+    uniqueID: 633632093
     locked: 0
   - name: Foreground
     uniqueID: 966879913

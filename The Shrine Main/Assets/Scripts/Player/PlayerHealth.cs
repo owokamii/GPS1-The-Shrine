@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-//using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float _maxThirst = 100;
     public float _currentThirst;
-    public Animator _screenAnimator;
+    public Animator transition;
 
     public ThirstBar _thirstBar;
 
@@ -23,15 +21,16 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
+        if(_currentThirst > _maxThirst)
+            _currentThirst = _maxThirst;
+        else if(_currentThirst < 0)
+            _currentThirst = 0;
+
         if(gameObject.tag == "Player")
-        {
             Dehydration();
-        }
 
         if (_currentThirst <= 0)
-        {
             Die();
-        }
 
     }
 
@@ -50,15 +49,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Enemy"))
-        {
-            Die();
-        }
+        if(gameObject.tag == "Player" || gameObject.tag == "Immortal")
+            if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Enemy"))
+                Die();
     }
 
     void Dehydration()
     {
-        _currentThirst -= 2 * Time.deltaTime;
+        _currentThirst -= 1.5f * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
 
@@ -72,26 +70,16 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         gameObject.tag = "Dead";
-        Invoke("FadeOut", 1);
+        transition.SetTrigger("Start");
         Invoke("Respawn", 3);
     }
 
     void Respawn()
     {
-        Invoke("FadeIn", 2);
+        transition.SetTrigger("End");
         gameObject.tag = "Player";
         transform.position = _spawnPoint;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
-    }
-
-    void FadeOut()
-    {
-        _screenAnimator.SetBool("FadeOut", true);
-    }
-
-    void FadeIn()
-    {
-        _screenAnimator.SetBool("FadeOut", false);
     }
 }
