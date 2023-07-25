@@ -56,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Dehydration()
     {
-        _currentThirst -= 1.5f * Time.deltaTime;
+        _currentThirst -= 2f * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
 
