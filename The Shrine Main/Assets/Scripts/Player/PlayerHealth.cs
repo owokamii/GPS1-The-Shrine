@@ -4,19 +4,27 @@ public class PlayerHealth : MonoBehaviour
 {
     public float _maxThirst = 100;
     public float _currentThirst;
-    public Animator transition;
 
+    public ParticleSystem sweat;
+    public Animator transition;
     public ThirstBar _thirstBar;
 
     private Transform currentCheckpoint;
     Vector2 _spawnPoint;
+
+    //
+    //public GameObject crate1;
+    //Vector2 crate1SpawnPoint;
+    //Vector2 crate1CurrentPoint;
+    //
 
     void Start()
     {
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
-        
+        //crate1SpawnPoint = transform.position;
+
     }
 
     void Update()
@@ -26,12 +34,13 @@ public class PlayerHealth : MonoBehaviour
         else if(_currentThirst < 0)
             _currentThirst = 0;
 
-        if(gameObject.tag == "Player")
+        if (gameObject.CompareTag("Player"))
             Dehydration();
 
         if (_currentThirst <= 0)
             Die();
 
+        //crate1CurrentPoint = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +65,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Dehydration()
     {
+        sweat.Play();
         _currentThirst -= 2f * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
