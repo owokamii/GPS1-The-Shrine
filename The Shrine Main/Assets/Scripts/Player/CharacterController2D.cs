@@ -22,7 +22,6 @@ public class CharacterController2D : MonoBehaviour
 
     const float _groundedRadius = .2f;
     const float _ceilingRadius = .2f;
-    const float _neckRadius = .1f;
     private Rigidbody2D _rb;
     private bool _facingRight = true;
     private bool _wasCrouching = false;
@@ -46,21 +45,6 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
-    }
-
-    private void Update()
-    {
-        Debug.DrawRay(_neckCheck.position, _neckCheck.TransformDirection(Vector2.up) * 1f, Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(_neckCheck.position, _neckCheck.TransformDirection(Vector2.up), 1f);
-
-        /*if (hit.collider.gameObject.CompareTag("Ground"))
-        {
-            _crouchDisableCollider.enabled = false;
-        }
-        else
-        {
-            _crouchDisableCollider.enabled = true;
-        }*/
     }
 
     private void FixedUpdate()
@@ -91,9 +75,7 @@ public class CharacterController2D : MonoBehaviour
             if (Physics2D.OverlapCircle(_ceilingCheck.position, _ceilingRadius, _whatIsGround))
             {
                 if (_grounded)
-                {
                     crouch = true;
-                }
             }
         }
 

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D _controller;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
+    [SerializeField] private SpriteRenderer _shadow;
 
     //walk
     private float horizontalMove;
@@ -38,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(jump)
+            _shadow.enabled = false;
+        else
+            _shadow.enabled = true;
+
         //if player is not dead
         if (gameObject.tag != "Dead")
         {
@@ -67,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 jump = true;
                 //animator.SetBool("isJumping", true);
+                //_shadow.enabled = false;
             }
 
             if (Input.GetButtonDown("Crouch"))
@@ -80,17 +87,10 @@ public class PlayerMovement : MonoBehaviour
 
             Physics2D.queriesStartInColliders = false;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, _grabDistance, _crateMask);
-            /*RaycastHit2D ground = Physics2D.Raycast(transform.position, Vector2.down * transform.localScale.x, _grabDistance, _crateMask);
-            Debug.Log(ground.collider.gameObject.layer);
-
-            if (ground.collider.gameObject.layer == 9)
-            {
-                _animator.SetBool("IsClimbing", false);
-            }*/
 
             if(hit.collider != null)
             {
-                if (hit.collider.gameObject.tag == "Objects" && Input.GetButtonDown("Grab")) //hit.collider != null
+                if (hit.collider.gameObject.CompareTag("Objects") && Input.GetButtonDown("Grab")) //hit.collider != null
                 {
                     crate = hit.collider.gameObject;
                     crate.GetComponent<FixedJoint2D>().enabled = true;
@@ -113,6 +113,10 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalMove = 0f;
             _animator.SetBool("Dead", true);
+            crate.GetComponent<FixedJoint2D>().enabled = false;
+            crate.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
+            _isPushing = false;
+            _animator.SetBool("IsPushing", false);
         }
     }
 
@@ -136,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(Time.timeSinceLevelLoad - lastPlayedFootstepSoundTime > timeBetweenFootsteps)
             {
-                audioManager.PlaySFX(audioManager.sfx[0]);
+                audioManager.PlaySFX(audioManager.sfx[2]);
                 lastPlayedFootstepSoundTime = Time.timeSinceLevelLoad;
             }
         }

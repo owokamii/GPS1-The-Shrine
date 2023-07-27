@@ -17,7 +17,7 @@ public class Checkpoint : MonoBehaviour
         {
             activated = true;
             _animator.SetBool("Activated", true);
-            audioManager.PlaySFX(audioManager.sfx[1]);
+            audioManager.PlaySFX(audioManager.sfx[3]);
         }
     }
 }
