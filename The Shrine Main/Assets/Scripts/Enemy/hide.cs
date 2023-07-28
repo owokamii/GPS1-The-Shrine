@@ -17,6 +17,7 @@ public class hide : MonoBehaviour
 
     void Update()
     {
+        
         animator = GetComponent<Animator>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, 0f);
     }
@@ -45,6 +46,7 @@ public class hide : MonoBehaviour
     void Respawn()
     {
         bird.transform.position = spawnPoint;
+        moveSpeed = 4.5f;
     }
 
 }

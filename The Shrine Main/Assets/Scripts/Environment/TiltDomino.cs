@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TiltDomino : MonoBehaviour
 {
-    private float fallDelay = 0.5f;
+    private float fallDelay = 2f;
     private float destroyDelay = 1.5f;
     private Quaternion initialRotation; // Store the initial rotation of the platform
     private bool isFalling = false; // Flag to check if the platform is already falling
