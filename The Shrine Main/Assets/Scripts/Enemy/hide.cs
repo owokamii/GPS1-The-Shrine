@@ -7,15 +7,14 @@ public class hide : MonoBehaviour
     public GameObject bird;
     public float moveSpeed;
     private Animator animator;
-    public Transform spawnPoint;
-    // Start is called before the first frame update
+    Vector2 spawnPoint;
+
     void Start()
     {
-
+        spawnPoint = transform.position;
         bird.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         animator = GetComponent<Animator>();
@@ -24,13 +23,12 @@ public class hide : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Dead"))
         {
-            // Code to handle the collision with the detector
             Debug.Log("Player kill");
-            //Destroy(collision.gameObject);
-            Destroy(gameObject);
-            Instantiate(bird, spawnPoint.position, Quaternion.identity);
+            bird.SetActive(false);
+            Respawn();
+            //Instantiate(bird, spawnPoint.position, Quaternion.identity);
             
         }
     }
@@ -42,6 +40,11 @@ public class hide : MonoBehaviour
             moveSpeed = 0f;
             animator.SetTrigger("StopDetector");
         }
+    }
+
+    void Respawn()
+    {
+        bird.transform.position = spawnPoint;
     }
 
 }
