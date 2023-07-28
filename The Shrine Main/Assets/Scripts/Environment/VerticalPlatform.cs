@@ -12,7 +12,7 @@ public class VerticalPlatform : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.S))
+        if(Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
         {
             _waitTime = 0.5f;
         }
@@ -30,7 +30,7 @@ public class VerticalPlatform : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             _effector.rotationalOffset = 0;
         }
