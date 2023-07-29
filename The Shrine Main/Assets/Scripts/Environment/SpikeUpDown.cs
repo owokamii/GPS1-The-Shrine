@@ -21,7 +21,7 @@ public class SpikeUpDown : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer >= 2f)
+            if (timer >= 1.5f)
             {
                 movingUp = !movingUp;
                 timer = 0f;
@@ -38,7 +38,7 @@ public class SpikeUpDown : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
