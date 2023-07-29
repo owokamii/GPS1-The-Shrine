@@ -10,6 +10,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform _neckCheck;
     [SerializeField] private Collider2D _crouchDisableCollider;
 
+
     //walk
     [Range(0, .3f)][SerializeField] private float _movementSmoothing = .05f;
 
@@ -82,7 +83,7 @@ public class CharacterController2D : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (_airControl)
         {
-            if(_grounded)
+            if (_grounded)
             {
                 // If crouching
                 if (crouch)
@@ -111,7 +112,7 @@ public class CharacterController2D : MonoBehaviour
                     }
                 }
             }
-            
+
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, _rb.velocity.y);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -6,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D _controller;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
-    [SerializeField] private SpriteRenderer _shadow;
+    //[SerializeField] private SpriteRenderer _shadow;
+    [SerializeField] private GameObject _shadow2;
+
 
     //walk
     private float horizontalMove;
@@ -39,10 +42,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(jump)
-            _shadow.enabled = false;
+        if (jump)
+            _shadow2.SetActive(false);
+            //_shadow.enabled = false;
         else
-            _shadow.enabled = true;
+            _shadow2.SetActive(true);
+        //_shadow.enabled = true;
 
         //if player is not dead
         if (gameObject.tag != "Dead")
@@ -74,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
                 jump = true;
                 //animator.SetBool("isJumping", true);
                 //_shadow.enabled = false;
+                _shadow2.SetActive(false);
             }
 
             if (Input.GetButtonDown("Crouch"))
@@ -88,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             Physics2D.queriesStartInColliders = false;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, _grabDistance, _crateMask);
 
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 if (hit.collider.gameObject.CompareTag("Objects") && Input.GetButtonDown("Grab")) //hit.collider != null
                 {
@@ -109,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if(gameObject.tag == "Dead")
+        else if (gameObject.tag == "Dead")
         {
             horizontalMove = 0f;
             _animator.SetBool("Dead", true);
@@ -122,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLanding()
     {
+        jump = false;
         //animator.SetBool("isJumping", false);
     }
 
@@ -134,11 +141,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, _isPushing);
         jump = false;
-        
+
         //footsteps sound
         if (horizontalMove != 0)
         {
-            if(Time.timeSinceLevelLoad - lastPlayedFootstepSoundTime > timeBetweenFootsteps)
+            if (Time.timeSinceLevelLoad - lastPlayedFootstepSoundTime > timeBetweenFootsteps)
             {
                 audioManager.PlaySFX(audioManager.sfx[2]);
                 lastPlayedFootstepSoundTime = Time.timeSinceLevelLoad;
@@ -159,6 +166,8 @@ public class PlayerMovement : MonoBehaviour
             _rb.gravityScale = 3f;
         }
     }
+
+    
 
     //enter ladder
     private void OnTriggerEnter2D(Collider2D collision)

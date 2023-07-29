@@ -40,8 +40,22 @@ public class PlayerHealth : MonoBehaviour
         if (_currentThirst <= 0)
             Die();
 
+        if (gameObject.CompareTag("Player"))
+        {
+            if (!sweat.isPlaying)
+                sweat.Play();
+        }
+        else if (gameObject.CompareTag("Immortal"))
+        {
+            if (sweat.isPlaying)
+                sweat.Stop();
+        }
+       
+
         //crate1CurrentPoint = transform.position;
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -65,7 +79,11 @@ public class PlayerHealth : MonoBehaviour
 
     void Dehydration()
     {
-        sweat.Play();
+        //if (gameObject.tag == "Player")
+        //{
+        //    sweat.Play();
+        //}
+
         _currentThirst -= 2f * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }

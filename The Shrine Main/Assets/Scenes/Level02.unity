@@ -857,6 +857,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5372403671238427012, guid: fa1cc340c90b2a445927e0329c0f68fc, type: 3}
   m_PrefabInstance: {fileID: 1080346411}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &76238560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4669603417110818597, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+  m_PrefabInstance: {fileID: 1155753061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &85017210
 GameObject:
   m_ObjectHideFlags: 0
@@ -6945,7 +6950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 306.06992, y: 3.8999994, z: -9.94597}
+  m_LocalPosition: {x: 27.29994, y: 3.4199994, z: -9.94597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7885,7 +7890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606726164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 306.06992, y: 3.8999994, z: -9.94597}
+  m_LocalPosition: {x: 27.29994, y: 3.4199994, z: -9.94597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16920,13 +16925,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1601548213}
     m_Modifications:
+    - target: {fileID: 4669603417110818597, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7452787131245887880, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 312.8
+      value: 34.03
       objectReference: {fileID: 0}
     - target: {fileID: 7452787131245887880, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.12
+      value: 3.64
       objectReference: {fileID: 0}
     - target: {fileID: 7452787131245887881, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
       propertyPath: m_IsActive
@@ -16940,6 +16949,10 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 1898720654}
+    - target: {fileID: 7452787131245887884, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: _shadow2
+      value: 
+      objectReference: {fileID: 76238560}
     - target: {fileID: 7550432686779793520, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
       propertyPath: runSpeed
       value: 25
