@@ -39,6 +39,8 @@ public class hide : MonoBehaviour
         if (collision.gameObject.CompareTag("StopDetector"))
         {
             moveSpeed = 0f;
+            bird.SetActive(false);
+            Respawn();
             animator.SetTrigger("StopDetector");
         }
     }
