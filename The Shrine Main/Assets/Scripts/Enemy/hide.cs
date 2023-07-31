@@ -8,6 +8,7 @@ public class hide : MonoBehaviour
     public float moveSpeed;
     private Animator animator;
     Vector2 spawnPoint;
+    public SpriteRenderer sprite;
 
     void Start()
     {
@@ -20,16 +21,21 @@ public class hide : MonoBehaviour
         
         animator = GetComponent<Animator>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, 0f);
+
+        if (moveSpeed > 0 || moveSpeed < 0)
+            animator.SetBool("Move", true);
+        else if (moveSpeed == 0)
+            animator.SetBool("Move", false);
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Dead"))
         {
-            Debug.Log("Player kill");
-            bird.SetActive(false);
-            Respawn();
-            //Instantiate(bird, spawnPoint.position, Quaternion.identity);
+            gameObject.tag = "DeadDead";
+            animator.SetBool("Bite", true);
+            Invoke("Respawn", 1);
             
         }
     }
@@ -39,16 +45,23 @@ public class hide : MonoBehaviour
         if (collision.gameObject.CompareTag("StopDetector"))
         {
             moveSpeed = 0f;
-            bird.SetActive(false);
-            Respawn();
-            animator.SetTrigger("StopDetector");
+            Invoke("SlitherBack", 2);
+            Invoke("Respawn", 4);
         }
     }
 
     void Respawn()
     {
         bird.transform.position = spawnPoint;
-        moveSpeed = 4.5f;
+        bird.SetActive(false);
+        sprite.flipX = false;
+        moveSpeed = 5.3f;
+    }
+
+    void SlitherBack()
+    {
+        sprite.flipX = true;
+        moveSpeed = -9f;
     }
 
 }

@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - Audio
   - StopDetector
+  - DeadDead
   layers:
   - Default
   - TransparentFX

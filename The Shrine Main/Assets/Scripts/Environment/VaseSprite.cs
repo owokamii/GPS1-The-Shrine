@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class VaseSprite : MonoBehaviour
 {
-    public SpriteRenderer _currentSprite;
-
+    public bool toDestroy = false;
     private bool isTriggered;
 
     public void TriggerVase()
     {
         if(!isTriggered)
-        {
-            isTriggered = true;
-            Destroy(gameObject);
-        }
+            if(toDestroy)
+            {
+                isTriggered = true;
+                Destroy(gameObject);
+            }
     }
 }

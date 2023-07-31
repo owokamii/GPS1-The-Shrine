@@ -117,12 +117,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (gameObject.tag == "Dead")
         {
-            horizontalMove = 0f;
             _animator.SetBool("Dead", true);
-            crate.GetComponent<FixedJoint2D>().enabled = false;
-            crate.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
-            _isPushing = false;
-            _animator.SetBool("IsPushing", false);
+            if (_isPushing)
+            {
+                horizontalMove = 0f;
+                crate.GetComponent<FixedJoint2D>().enabled = false;
+                crate.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
+                _isPushing = false;
+                _animator.SetBool("IsPushing", false);
+            }
         }
     }
 

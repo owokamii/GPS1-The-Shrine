@@ -79,11 +79,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Dehydration()
     {
-        //if (gameObject.tag == "Player")
-        //{
-        //    sweat.Play();
-        //}
-
         _currentThirst -= 2f * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
