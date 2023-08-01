@@ -24326,6 +24326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrouchTutorialTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 6291364063188448866, guid: a214caa380fa9a34bab69f4e69cb3843, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6291364063188448867, guid: a214caa380fa9a34bab69f4e69cb3843, type: 3}
       propertyPath: tutorialMenu
       value: 
