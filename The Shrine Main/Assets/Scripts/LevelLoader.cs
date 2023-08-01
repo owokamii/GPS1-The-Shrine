@@ -9,10 +9,8 @@ public class LevelLoader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("detected");
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Immortal"))
         {
-            Debug.Log("detected player");
             LoadNextLevel();
         }
     }
