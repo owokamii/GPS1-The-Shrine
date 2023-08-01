@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -29,13 +30,22 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if(_currentThirst > _maxThirst)
+        if (_currentThirst > _maxThirst)
             _currentThirst = _maxThirst;
-        else if(_currentThirst < 0)
+        else if (_currentThirst < 0)
             _currentThirst = 0;
 
         if (gameObject.CompareTag("Player"))
-            Dehydration();
+        {
+            if(SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                Dehydration(2);
+            }
+            if(SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                Dehydration(4);
+            }
+        }
 
         if (_currentThirst <= 0)
             Die();
@@ -59,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacles"))
+        if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Enemy"))
         {
             Die();
         }
@@ -77,9 +87,9 @@ public class PlayerHealth : MonoBehaviour
                 Die();
     }
 
-    void Dehydration()
+    void Dehydration(float value)
     {
-        _currentThirst -= 2f * Time.deltaTime;
+        _currentThirst -= value * Time.deltaTime;
         _thirstBar.SetThirst(_currentThirst);
     }
 

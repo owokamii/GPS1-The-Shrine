@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D _controller;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
-    //[SerializeField] private SpriteRenderer _shadow;
-    [SerializeField] private GameObject _shadow2;
-
 
     //walk
     private float horizontalMove;
@@ -42,15 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (jump)
-            _shadow2.SetActive(false);
-            //_shadow.enabled = false;
-        else
-            _shadow2.SetActive(true);
-        //_shadow.enabled = true;
-
         //if player is not dead
-        if (gameObject.tag != "Dead")
+        if (gameObject.tag != "Dead" && Time.timeScale == 1f)
         {
             _animator.SetBool("Dead", false);
             if (!_isPushing)
@@ -78,8 +68,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 jump = true;
                 //animator.SetBool("isJumping", true);
-                //_shadow.enabled = false;
-                _shadow2.SetActive(false);
             }
 
             if (Input.GetButtonDown("Crouch"))
@@ -115,12 +103,12 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if (gameObject.tag == "Dead")
+        else if (gameObject.tag == "Dead" || gameObject.tag == "DeadDead")
         {
+            horizontalMove = 0f;
             _animator.SetBool("Dead", true);
             if (_isPushing)
             {
-                horizontalMove = 0f;
                 crate.GetComponent<FixedJoint2D>().enabled = false;
                 crate.GetComponent<ObjectPhysics>().beingPushed = false; //not so optimized
                 _isPushing = false;

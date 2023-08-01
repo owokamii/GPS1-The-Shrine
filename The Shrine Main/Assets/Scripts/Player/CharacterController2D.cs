@@ -7,9 +7,8 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Transform _ceilingCheck;
-    [SerializeField] private Transform _neckCheck;
     [SerializeField] private Collider2D _crouchDisableCollider;
-
+    [SerializeField] private GameObject _shadow;
 
     //walk
     [Range(0, .3f)][SerializeField] private float _movementSmoothing = .05f;
@@ -62,9 +61,16 @@ public class CharacterController2D : MonoBehaviour
             {
                 _grounded = true;
                 if (!wasGrounded)
+                {
                     OnLandEvent.Invoke();
+                }   
             }
         }
+
+        if (wasGrounded)
+            _shadow.SetActive(true);
+        else
+            _shadow.SetActive(false);
     }
 
     public void Move(float move, bool crouch, bool jump, bool isPushing)

@@ -57,9 +57,4 @@ public class OptionsMenu : MonoBehaviour
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("sfxVolume");
         SetSFXVolume();
     }
-
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-    }
 }
