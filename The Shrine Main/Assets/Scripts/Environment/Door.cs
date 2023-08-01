@@ -7,6 +7,9 @@ public class Door : MonoBehaviour
     public Rock1 Rune2;
     public Rock1 Rune3;
 
+    public Sprite[] doorGlyph;
+    public Sprite[] doorGlyphLit;
+
     void Start()
     {
     }
@@ -28,7 +31,6 @@ public class Door : MonoBehaviour
 
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
         {
-            GetComponent<SpriteRenderer>().color = Color.green;
             door.enabled = false;
         }
     }

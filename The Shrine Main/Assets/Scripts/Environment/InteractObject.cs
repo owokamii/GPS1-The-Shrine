@@ -15,6 +15,7 @@ public class InteractObject : MonoBehaviour
 
     public bool isWater;
     public bool isTrapdoor;
+    public bool isGlyphStone;
 
     private void Awake()
     {
@@ -27,13 +28,22 @@ public class InteractObject : MonoBehaviour
         {
             if (Input.GetKeyDown(_interactKey))
             {
-                sprite.enabled = false;
                 if(isWater)
+                {
                     audioManager.PlaySFX(audioManager.sfx[5]);
+                    sprite.enabled = false;
+                    isTriggered = true;
+                }
                 if (isTrapdoor)
+                {
                     audioManager.PlaySFX(audioManager.sfx[6]);
+                    sprite.enabled = false;
+                    isTriggered = true;
+                }
+
+                if (isGlyphStone)
+                    audioManager.PlaySFX(audioManager.sfx[7]);
                 _interactAction.Invoke();
-                isTriggered = true;
             }
         }
 

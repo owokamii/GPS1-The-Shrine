@@ -7,6 +7,7 @@ public class hide : MonoBehaviour
     private Animator animator;
     Vector2 spawnPoint;
     public SpriteRenderer sprite;
+    public bool slowerSnake = false;
 
     void Start()
     {
@@ -53,7 +54,10 @@ public class hide : MonoBehaviour
         bird.transform.position = spawnPoint;
         bird.SetActive(false);
         sprite.flipX = false;
-        moveSpeed = 5.3f;
+        if (!slowerSnake)
+            moveSpeed = 5.3f;
+        else
+            moveSpeed = 4f;
     }
 
     void SlitherBack()

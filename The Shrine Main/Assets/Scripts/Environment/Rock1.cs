@@ -4,6 +4,7 @@ using UnityEngine;
 public class Rock1 : MonoBehaviour
 {
     public Sprite[] runes;
+    public Sprite[] glyphLit;
     public SpriteRenderer currentSprite;
     public int currentIndex = 0;
 
@@ -26,7 +27,6 @@ public class Rock1 : MonoBehaviour
             }
 
             currentSprite.sprite = runes[currentIndex];
-            Debug.Log("Sprite Changed");
 
             if (currentIndex != 0)
             {
@@ -36,6 +36,7 @@ public class Rock1 : MonoBehaviour
             else
             {
                 activatedRune1 = true;
+                currentSprite.sprite = glyphLit[currentIndex];
             }
         }
     }
@@ -54,7 +55,6 @@ public class Rock1 : MonoBehaviour
             }
 
             currentSprite.sprite = runes[currentIndex];
-            Debug.Log("Sprite Changed");
 
             if (currentIndex != 1)
             {
@@ -64,6 +64,7 @@ public class Rock1 : MonoBehaviour
             else
             {
                 activatedRune2 = true;
+                currentSprite.sprite = glyphLit[currentIndex];
             }
         }
     }
@@ -82,7 +83,7 @@ public class Rock1 : MonoBehaviour
             }
 
             currentSprite.sprite = runes[currentIndex];
-            Debug.Log("Sprite Changed");
+
 
             if (currentIndex != 2)
             {
@@ -92,6 +93,7 @@ public class Rock1 : MonoBehaviour
             else
             {
                 activatedRune3 = true;
+                currentSprite.sprite = glyphLit[currentIndex];
             }
         }
     }
