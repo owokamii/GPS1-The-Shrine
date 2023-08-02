@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: 0
-  inGame: 0
+  inGame: 1
 --- !u!4 &582218366
 Transform:
   m_ObjectHideFlags: 0
