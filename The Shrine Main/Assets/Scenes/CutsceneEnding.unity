@@ -134,13 +134,14 @@ GameObject:
   - component: {fileID: 4255484}
   - component: {fileID: 4255483}
   - component: {fileID: 4255482}
+  - component: {fileID: 4255485}
   m_Layer: 5
   m_Name: Cutscene_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4255482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +200,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!320 &4255485
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255481}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: b2199b90a1e812b478548452c7254d51, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &7340837
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &25313276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b9f79d4c3951f4d97f1c1603f95a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: 1
+  inGame: 0
 --- !u!4 &582218366
 Transform:
   m_ObjectHideFlags: 0
@@ -1056,7 +1076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &903254689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,7 +1152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1059440036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,7 +1676,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1282879360}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 3e70ca2d5f50bbc489807abaa5c1b904, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1686,6 +1706,34 @@ PlayableDirector:
     value: {fileID: 575571662}
   - key: {fileID: -2532302441823262650, guid: 3e70ca2d5f50bbc489807abaa5c1b904, type: 2}
     value: {fileID: 25313275}
+  - key: {fileID: -6962909954816696728, guid: 3e70ca2d5f50bbc489807abaa5c1b904, type: 2}
+    value: {fileID: 25313275}
+  - key: {fileID: -3645747206614520266, guid: 3e70ca2d5f50bbc489807abaa5c1b904, type: 2}
+    value: {fileID: 575571662}
+  - key: {fileID: 2422577208712824302, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1295374808}
+  - key: {fileID: -6962909954816696728, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 25313275}
+  - key: {fileID: -7726817743542506972, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1134952215}
+  - key: {fileID: -6358738219608254184, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1574164990}
+  - key: {fileID: 6594741529885904390, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1059440035}
+  - key: {fileID: 6377364577370334990, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 903254688}
+  - key: {fileID: -6632388560673598141, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1164052791}
+  - key: {fileID: -8958522692147826778, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1984645764}
+  - key: {fileID: 541334654250110571, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 1233229195}
+  - key: {fileID: -3645747206614520266, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 575571662}
+  - key: {fileID: -5596525925649696435, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 582218364}
+  - key: {fileID: -8044253999314516129, guid: ecb63a9859fc2e949a7fb087e6a85119, type: 2}
+    value: {fileID: 4255481}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1282879362
@@ -1910,7 +1958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1574164991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,7 +2043,7 @@ PrefabInstance:
     - target: {fileID: 2800233611788995233, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
       propertyPath: music.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 008c6034af4926841838fcb8fd86e53d, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2800233611788995238, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -10,8 +10,14 @@ public class Door : MonoBehaviour
     public Sprite[] doorGlyph;
     public Sprite[] doorGlyphLit;
 
-    void Start()
+    public SpriteRenderer sp;
+    public Sprite doorOpen;
+
+    AudioManager audioManager;
+
+    private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -31,7 +37,9 @@ public class Door : MonoBehaviour
 
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
         {
+            sp.sprite = doorOpen;
             door.enabled = false;
+            //audioManager.PlaySFX(audioManager.sfx[8]);
         }
     }
 }
