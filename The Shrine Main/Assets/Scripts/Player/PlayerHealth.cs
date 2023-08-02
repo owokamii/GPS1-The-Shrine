@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
             }
             if(SceneManager.GetActiveScene().buildIndex == 3)
             {
-                Dehydration(4);
+                Dehydration(3);
             }
         }
 

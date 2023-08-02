@@ -13,7 +13,7 @@ public class VideoPlayerScript : MonoBehaviour
     {
         _videoPlayer = GetComponent<VideoPlayer>();
         Invoke("PlayVideo1", 6f);
-        Invoke("PlayVideo2", 13f);
+        Invoke("PlayVideo2", 15f);
     }
 
     // Update is called once per frame
