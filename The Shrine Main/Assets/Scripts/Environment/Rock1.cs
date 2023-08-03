@@ -13,6 +13,13 @@ public class Rock1 : MonoBehaviour
     public bool activatedRune2 = false;
     public bool activatedRune3 = false;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public void TriggerRock1()
     {
         if (!isTriggered)
@@ -37,6 +44,7 @@ public class Rock1 : MonoBehaviour
             {
                 activatedRune1 = true;
                 currentSprite.sprite = glyphLit[currentIndex];
+                audioManager.PlaySFX(audioManager.sfx[8]);
             }
         }
     }
@@ -65,6 +73,7 @@ public class Rock1 : MonoBehaviour
             {
                 activatedRune2 = true;
                 currentSprite.sprite = glyphLit[currentIndex];
+                audioManager.PlaySFX(audioManager.sfx[8]);
             }
         }
     }
@@ -94,6 +103,7 @@ public class Rock1 : MonoBehaviour
             {
                 activatedRune3 = true;
                 currentSprite.sprite = glyphLit[currentIndex];
+                audioManager.PlaySFX(audioManager.sfx[8]);
             }
         }
     }

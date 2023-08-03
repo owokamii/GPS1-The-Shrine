@@ -804,6 +804,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1938278881}
+        m_TargetAssemblyTypeName: NextScene, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 582218365}
         m_TargetAssemblyTypeName: NextScene, Assembly-CSharp
         m_MethodName: SkipButton
@@ -1710,7 +1722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2800233611788995233, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
       propertyPath: sfx.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2800233611788995233, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
       propertyPath: music.Array.size
@@ -1719,7 +1731,7 @@ PrefabInstance:
     - target: {fileID: 2800233611788995233, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
       propertyPath: sfx.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: c1a2e42d8b7188c44828dc4565a51562, type: 3}
+      objectReference: {fileID: 8300000, guid: 860a12e25220a774492d9e676bb7673b, type: 3}
     - target: {fileID: 2800233611788995233, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
       propertyPath: music.Array.data[0]
       value: 
@@ -1770,3 +1782,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
+--- !u!1 &1938278881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2800233611305250974, guid: 0b6a0dfbd65559f438e1a05e89e738d4, type: 3}
+  m_PrefabInstance: {fileID: 1938278880}
+  m_PrefabAsset: {fileID: 0}

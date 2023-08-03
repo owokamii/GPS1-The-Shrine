@@ -7,11 +7,13 @@ public class Door : MonoBehaviour
     public Rock1 Rune2;
     public Rock1 Rune3;
 
-    public Sprite[] doorGlyph;
+    public SpriteRenderer[] doorGlyph;
+    public Sprite[] doorGlyphUnlit;
     public Sprite[] doorGlyphLit;
 
-    public SpriteRenderer sp;
+    public SpriteRenderer doorSprite;
     public Sprite doorOpen;
+    private bool doorSFX = false;
 
     AudioManager audioManager;
 
@@ -25,21 +27,48 @@ public class Door : MonoBehaviour
         if (Rune1.activatedRune1)
         {
             Debug.Log("rune 1 correct");
+            doorGlyph[0].sprite = doorGlyphLit[0];
         }
-        else if (Rune2.activatedRune2)
+        else
+        {
+            doorGlyph[0].sprite = doorGlyphUnlit[0];
+        }
+
+        if (Rune2.activatedRune2)
         {
             Debug.Log("rune 2 correct");
+            doorGlyph[1].sprite = doorGlyphLit[1];
         }
-        else if (Rune3.activatedRune3)
+        else
+        {
+            doorGlyph[1].sprite = doorGlyphUnlit[1];
+        }
+
+        if (Rune3.activatedRune3)
         {
             Debug.Log("rune 3 correct");
+            doorGlyph[2].sprite = doorGlyphLit[2];
+        }
+        else
+        {
+            doorGlyph[2].sprite = doorGlyphUnlit[2];
         }
 
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
         {
-            sp.sprite = doorOpen;
+            doorSprite.sprite = doorOpen;
             door.enabled = false;
-            //audioManager.PlaySFX(audioManager.sfx[8]);
+
+            if(!doorSFX)
+            {
+                Invoke("DoorSFX", 1);
+                doorSFX = true;
+            }
         }
+    }
+
+    void DoorSFX()
+    {
+        audioManager.PlaySFX(audioManager.sfx[9]);
     }
 }

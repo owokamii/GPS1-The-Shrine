@@ -9,6 +9,16 @@ public class hide : MonoBehaviour
     public SpriteRenderer sprite;
     public bool slowerSnake = false;
 
+    const float timeBetweenHisses = 3f;
+    float lastPlayedHissesSoundTime = -timeBetweenHisses;
+
+    AudioManager audioManager;
+
+    public void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
         spawnPoint = transform.position;
@@ -25,6 +35,15 @@ public class hide : MonoBehaviour
             animator.SetBool("Move", true);
         else if (moveSpeed == 0)
             animator.SetBool("Move", false);
+
+        if (moveSpeed != 0)
+        {
+            if (Time.timeSinceLevelLoad - lastPlayedHissesSoundTime > timeBetweenHisses)
+            {
+                audioManager.PlaySFX(audioManager.sfx[10]);
+                lastPlayedHissesSoundTime = Time.timeSinceLevelLoad;
+            }
+        }
 
     }
 

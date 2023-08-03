@@ -12,8 +12,8 @@ public class VideoPlayerScript : MonoBehaviour
     void Start()
     {
         _videoPlayer = GetComponent<VideoPlayer>();
-        Invoke("PlayVideo1", 6f);
-        Invoke("PlayVideo2", 23f);
+        Invoke("PlayVideo1", 7f);
+        Invoke("PlayVideo2", 23.6f);
     }
 
     // Update is called once per frame
@@ -26,7 +26,6 @@ public class VideoPlayerScript : MonoBehaviour
     public void PlayVideo2()
     {
         _videoPlayer.clip = _video2;
-        _videoPlayer.isLooping = true;
         _videoPlayer.Play();
     }
 }
