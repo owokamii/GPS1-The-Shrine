@@ -17,7 +17,7 @@ public class VerticalPlatform : MonoBehaviour
             _waitTime = 0.1f;
         }
 
-        if(Input.GetKey(KeyCode.S))
+        if(Input.GetKey(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
         {
             if(_waitTime <= 0)
             {
