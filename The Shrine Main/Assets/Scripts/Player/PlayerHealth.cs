@@ -10,21 +10,15 @@ public class PlayerHealth : MonoBehaviour
     public Animator transition;
     public ThirstBar _thirstBar;
 
-    private Transform currentCheckpoint;
     Vector2 _spawnPoint;
 
-    //
-    //public GameObject crate1;
-    //Vector2 crate1SpawnPoint;
-    //Vector2 crate1CurrentPoint;
-    //
+    public Checkpoint checkpoint;
 
     void Start()
     {
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
-        //crate1SpawnPoint = transform.position;
 
     }
 
@@ -60,9 +54,6 @@ public class PlayerHealth : MonoBehaviour
             if (sweat.isPlaying)
                 sweat.Stop();
         }
-       
-
-        //crate1CurrentPoint = transform.position;
     }
 
     

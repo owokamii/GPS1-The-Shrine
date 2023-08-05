@@ -28,21 +28,25 @@ public class InteractObject : MonoBehaviour
         {
             if (Input.GetKeyDown(_interactKey))
             {
-                if(isWater)
+                _interactAction.Invoke();
+                if (isWater)
                 {
                     audioManager.PlaySFX(audioManager.sfx[5]);
                     sprite.enabled = false;
                     isTriggered = true;
+                    _inRange = false;
                 }
                 if (isTrapdoor)
                 {
                     audioManager.PlaySFX(audioManager.sfx[6]);
                     sprite.enabled = false;
                     isTriggered = true;
+                    _interactAction.Invoke();
                 }
 
                 if (isGlyphStone)
                     audioManager.PlaySFX(audioManager.sfx[7]);
+
                 _interactAction.Invoke();
             }
         }

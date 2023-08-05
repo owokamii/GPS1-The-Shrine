@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CutsceneEnding.unity
     guid: d7ec34e2260401a4fb255fb167892e7a
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: cab10fab3f918c241b72f9d52e7a7784
   m_configObjects: {}

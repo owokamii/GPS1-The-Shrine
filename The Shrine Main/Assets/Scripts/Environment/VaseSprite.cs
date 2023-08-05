@@ -6,7 +6,7 @@ public class VaseSprite : MonoBehaviour
 
     public void TriggerVase()
     {
-        if(!isTriggered)
+        if (!isTriggered)
             isTriggered = true;
     }
 }

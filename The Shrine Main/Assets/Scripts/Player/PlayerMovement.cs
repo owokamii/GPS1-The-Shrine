@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     const float timeBetweenFootsteps = 0.65f;
     float lastPlayedFootstepSoundTime = -timeBetweenFootsteps;
+    const float timeBetweenCrateSound = 0.1f;
+    float lastPlayedCrateSoundTime = -timeBetweenCrateSound;
 
     private void Awake()
     {
@@ -141,7 +143,17 @@ public class PlayerMovement : MonoBehaviour
                 audioManager.PlaySFX(audioManager.sfx[2]);
                 lastPlayedFootstepSoundTime = Time.timeSinceLevelLoad;
             }
+
+            /*if(_isPushing)
+            {
+                if(Time.timeSinceLevelLoad - lastPlayedCrateSoundTime > timeBetweenCrateSound)
+                {
+                    audioManager.PlaySFX(audioManager.sfx[7]);
+                    lastPlayedCrateSoundTime = Time.timeSinceLevelLoad;
+                }
+            }*/
         }
+
 
         if (_isClimbing && gameObject.tag != "Dead")
         {

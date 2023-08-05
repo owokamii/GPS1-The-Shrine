@@ -13,11 +13,6 @@ public class SwitchRenderPipelineAsset : MonoBehaviour
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("s key entered");
             GraphicsSettings.renderPipelineAsset = urp2D;
-            Debug.Log("Active render pipeline asset is: " + GraphicsSettings.renderPipelineAsset.name);
-            Debug.Log("bla blah blah");
-        }
     }
 }
