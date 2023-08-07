@@ -14,6 +14,8 @@ public class EnemyPatrolNew : MonoBehaviour
     private Vector3 initialPosition;
     public Animator animator;
     AudioManager audioManager;
+    public GameObject exMark;
+    public AudioSource exMarkSFX;
 
     private void Start()
     {
@@ -58,6 +60,7 @@ public class EnemyPatrolNew : MonoBehaviour
 
     private void Idle()
     {
+        exMark.SetActive(false);
         patrolSpeed = 0;
         animator.SetBool("Walking", false);
         animator.SetBool("Running", false);
@@ -66,6 +69,8 @@ public class EnemyPatrolNew : MonoBehaviour
 
     private void Noticed()
     {
+        exMark.SetActive(true);
+        exMarkSFX.Play();
         noticed = true;
         patrolSpeed = 0;
         audioManager.PlaySFX(audioManager.sfx[2]);
@@ -74,6 +79,7 @@ public class EnemyPatrolNew : MonoBehaviour
 
     private void Chase()
     {
+       
         patrolSpeed = 4f;
         animator.SetBool("Running", true);
     }
