@@ -73,4 +73,11 @@ public class InteractObject : MonoBehaviour
             _inRange = false;
         }
     }
+
+    public void ResetWater()
+    {
+        isTriggered = false;
+    }
+
+
 }

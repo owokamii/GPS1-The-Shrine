@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,9 +14,31 @@ public class PlayerHealth : MonoBehaviour
     Vector2 _spawnPoint;
 
     public Checkpoint checkpoint;
+    [SerializeField] private InteractObject waterVase1;
+    [SerializeField] private InteractObject waterVase2;
+    [SerializeField] private InteractObject waterVase3;
+    [SerializeField] private InteractObject waterVase4;
+    [SerializeField] private InteractObject waterVase5;
+    [SerializeField] private InteractObject waterVase6;
+    [SerializeField] private InteractObject waterVase7;
+    //________________________________________________
+    //
+    [SerializeField] private InteractObject waterPond1;
+    [SerializeField] private InteractObject waterPond2;
+    [SerializeField] private InteractObject waterPond3;
+    [SerializeField] private InteractObject waterPond4;
+    [SerializeField] private InteractObject waterPond5;
+    [SerializeField] private InteractObject waterPond6;
+    [SerializeField] private InteractObject waterPond7;
+    [SerializeField] private InteractObject waterPond8;
+    [SerializeField] private InteractObject waterPond9;
+    [SerializeField] private InteractObject waterPond10;
+    [SerializeField] private InteractObject waterPond11;
 
     void Start()
     {
+        
+
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
@@ -100,6 +123,80 @@ public class PlayerHealth : MonoBehaviour
 
     void Respawn()
     {
+        if (waterVase1 != null)
+        {
+            waterVase1.ResetWater();
+        }
+        if (waterVase2 != null)
+        {
+            waterVase2.ResetWater();
+        }
+        if (waterVase3 != null)
+        {
+            waterVase3.ResetWater();
+        }
+        if (waterVase4 != null)
+        {
+            waterVase4.ResetWater();
+        }
+        if (waterVase5 != null)
+        {
+            waterVase5.ResetWater();
+        }
+        if (waterVase6 != null)
+        {
+            waterVase6.ResetWater();
+        }
+        if (waterVase7 != null)
+        {
+            waterVase7.ResetWater();
+        }
+
+        if(waterPond1 != null)
+        {
+            waterPond1.ResetWater();
+        }
+        if (waterPond2 != null)
+        {
+            waterPond2.ResetWater();
+        }
+        if (waterPond3 != null)
+        {
+            waterPond3.ResetWater();
+        }
+        if (waterPond4 != null)
+        {
+            waterPond4.ResetWater();
+        }
+        if (waterPond5 != null)
+        {
+            waterPond5.ResetWater();
+        }
+        if (waterPond6 != null)
+        {
+            waterPond6.ResetWater();
+        }
+        if (waterPond7 != null)
+        {
+            waterPond7.ResetWater();
+        }
+        if (waterPond8 != null)
+        {
+            waterPond8.ResetWater();
+        }
+        if (waterPond9 != null)
+        {
+            waterPond9.ResetWater();
+        }
+        if (waterPond10 != null)
+        {
+            waterPond10.ResetWater();
+        }
+        if (waterPond11 != null)
+        {
+            waterPond11.ResetWater();
+        }
+
         transition.SetTrigger("End");
         gameObject.tag = "Player";
         transform.position = _spawnPoint;

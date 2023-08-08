@@ -15,7 +15,7 @@ public class EnemyPatrolNew : MonoBehaviour
     public Animator animator;
     AudioManager audioManager;
     public GameObject exMark;
-    public AudioSource exMarkSFX;
+    
 
     private void Start()
     {
@@ -70,7 +70,7 @@ public class EnemyPatrolNew : MonoBehaviour
     private void Noticed()
     {
         exMark.SetActive(true);
-        exMarkSFX.Play();
+        audioManager.PlaySFX(audioManager.sfx[8]);
         noticed = true;
         patrolSpeed = 0;
         audioManager.PlaySFX(audioManager.sfx[2]);

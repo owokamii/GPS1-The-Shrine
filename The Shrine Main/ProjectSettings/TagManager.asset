@@ -16,6 +16,7 @@ TagManager:
   - Audio
   - StopDetector
   - DeadDead
+  - WaterVase
   layers:
   - Default
   - TransparentFX

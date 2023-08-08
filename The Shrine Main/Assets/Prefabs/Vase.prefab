@@ -129,7 +129,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
         m_MethodName: Hydration
         m_Mode: 1
@@ -142,6 +142,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _interactKey: 101
+  sprite: {fileID: 1409341622367739232}
+  isWater: 1
+  isTrapdoor: 0
+  isGlyphStone: 0
 --- !u!1 &7597749409761721347
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,4 +244,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c171fbfa0b804da242291c59ba121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toDestroy: 0

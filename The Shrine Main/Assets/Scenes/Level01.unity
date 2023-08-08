@@ -2294,7 +2294,7 @@ PrefabInstance:
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: exMarkSFX
       value: 
-      objectReference: {fileID: 1780837472}
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: patrolDistance
       value: 4
@@ -8080,6 +8080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vase_7
       objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
+      objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -8152,11 +8156,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1409341622367739232, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
   m_PrefabInstance: {fileID: 600010617}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &607189340 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1409341622367739232, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
-  m_PrefabInstance: {fileID: 1433065661}
+--- !u!114 &600010621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 600010617}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &610079123
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,7 +8413,6 @@ MonoBehaviour:
     m_Bits: 128
   animator: {fileID: 0}
   exMark: {fileID: 0}
-  exMarkSFX: {fileID: 0}
 --- !u!61 &626929972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11311,7 +11320,6 @@ MonoBehaviour:
     m_Bits: 128
   animator: {fileID: 0}
   exMark: {fileID: 0}
-  exMarkSFX: {fileID: 0}
 --- !u!61 &811456429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13644,7 +13652,7 @@ PrefabInstance:
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: exMarkSFX
       value: 
-      objectReference: {fileID: 1780837472}
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: patrolDistance
       value: 4
@@ -14157,6 +14165,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vase_2
       objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
+      objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -14528,6 +14540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vase_3
       objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
+      objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -14773,6 +14789,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6475026110000786359, guid: 5665f39b7f4c5d24598d6aa634677746, type: 3}
   m_PrefabInstance: {fileID: 6475026110084746469}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1070198572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 1013844859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1075475484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5372403671238427012, guid: fa1cc340c90b2a445927e0329c0f68fc, type: 3}
@@ -16311,6 +16338,10 @@ PrefabInstance:
     - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_Name
       value: Vase_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
       objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
@@ -19725,6 +19756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vase_5
       objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
+      objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -20384,6 +20419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vase_1
       objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
+      objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -20429,21 +20468,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 607189340}
-    - target: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
-      propertyPath: isWater
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: _interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 170843219}
-    - target: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
-      propertyPath: _interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Hydration
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
 --- !u!1001 &1437266351
@@ -20701,7 +20728,6 @@ MonoBehaviour:
     m_Bits: 128
   animator: {fileID: 0}
   exMark: {fileID: 0}
-  exMarkSFX: {fileID: 0}
 --- !u!61 &1444495007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21268,7 +21294,7 @@ PrefabInstance:
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: exMarkSFX
       value: 
-      objectReference: {fileID: 1780837472}
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: patrolDistance
       value: 5
@@ -22503,6 +22529,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1cc340c90b2a445927e0329c0f68fc, type: 3}
+--- !u!114 &1590156208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 1433065661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596930049
 GameObject:
   m_ObjectHideFlags: 0
@@ -23449,6 +23486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vase_4
       objectReference: {fileID: 0}
+    - target: {fileID: 7597749409761721347, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+      propertyPath: m_TagString
+      value: WaterVase
+      objectReference: {fileID: 0}
     - target: {fileID: 7597749409761721350, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -23521,6 +23562,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1409341622367739232, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
   m_PrefabInstance: {fileID: 1392868680}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1678790364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 1392868680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1690468248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 260000562349781212, guid: c74ffda8d03c2ab4687a390f595c5fb6, type: 3}
@@ -23973,7 +24025,7 @@ PrefabInstance:
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: exMarkSFX
       value: 
-      objectReference: {fileID: 1780837472}
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: patrolDistance
       value: 2
@@ -24713,134 +24765,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1780837470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1780837471}
-  - component: {fileID: 1780837472}
-  m_Layer: 0
-  m_Name: EnemyAudio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1780837471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780837470}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2118073033}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1780837472
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780837470}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e13e503fb77a93a419eca86cb2bc6218, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1781354115
 GameObject:
   m_ObjectHideFlags: 0
@@ -26501,7 +26425,6 @@ MonoBehaviour:
     m_Bits: 128
   animator: {fileID: 0}
   exMark: {fileID: 0}
-  exMarkSFX: {fileID: 0}
 --- !u!1 &1886293360
 GameObject:
   m_ObjectHideFlags: 0
@@ -26833,6 +26756,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1409341622367739232, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
   m_PrefabInstance: {fileID: 1666678120}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1902937391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 1666678120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1902948460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26957,7 +26891,6 @@ MonoBehaviour:
     m_Bits: 128
   animator: {fileID: 0}
   exMark: {fileID: 0}
-  exMarkSFX: {fileID: 0}
 --- !u!61 &1904728963
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28333,6 +28266,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1409341622367739232, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
   m_PrefabInstance: {fileID: 1034529470}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1985420170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 1034529470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1989897148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5372403671238427012, guid: fa1cc340c90b2a445927e0329c0f68fc, type: 3}
@@ -28536,6 +28480,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1cc340c90b2a445927e0329c0f68fc, type: 3}
+--- !u!114 &1999795860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8369891870950460192, guid: 71c27bbf91380af4d8ce568cf8236d21, type: 3}
+  m_PrefabInstance: {fileID: 1152479490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7504227e41383b45b04d789e2ddb006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2002559223
 GameObject:
   m_ObjectHideFlags: 0
@@ -28762,6 +28717,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2118073033}
     m_Modifications:
+    - target: {fileID: 312801914164858314, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 312801914164858314, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 312801914164858314, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -640922287
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129144, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -28809,7 +28776,7 @@ PrefabInstance:
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: exMarkSFX
       value: 
-      objectReference: {fileID: 1780837472}
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129149, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: m_Name
       value: Villager_2
@@ -30002,7 +29969,6 @@ Transform:
   - {fileID: 626929970}
   - {fileID: 811456427}
   - {fileID: 1904728961}
-  - {fileID: 1780837471}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31030,7 +30996,7 @@ PrefabInstance:
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: exMarkSFX
       value: 
-      objectReference: {fileID: 1780837472}
+      objectReference: {fileID: 0}
     - target: {fileID: 2746084544252129147, guid: 18a9d5d57c2fcdc4fb578f642b9de1b2, type: 3}
       propertyPath: patrolDistance
       value: 4
@@ -31638,6 +31604,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase
+      value: 
+      objectReference: {fileID: 1070198572}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
       propertyPath: _thirstBar
       value: 
       objectReference: {fileID: 729563715}
@@ -31645,6 +31615,38 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 917671107}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase1
+      value: 
+      objectReference: {fileID: 1590156208}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase2
+      value: 
+      objectReference: {fileID: 1070198572}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase3
+      value: 
+      objectReference: {fileID: 1985420170}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase4
+      value: 
+      objectReference: {fileID: 1902937391}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase5
+      value: 
+      objectReference: {fileID: 1678790364}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase6
+      value: 
+      objectReference: {fileID: 1999795860}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVase7
+      value: 
+      objectReference: {fileID: 600010621}
+    - target: {fileID: 7452787131245887882, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
+      propertyPath: waterVasePrefab
+      value: 
+      objectReference: {fileID: 1590156208}
     - target: {fileID: 7452787131245887884, guid: 49ec60544dd27da479c0f985097d86f4, type: 3}
       propertyPath: _shadow2
       value: 
