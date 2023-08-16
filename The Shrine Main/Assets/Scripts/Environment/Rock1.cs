@@ -44,7 +44,6 @@ public class Rock1 : MonoBehaviour
             {
                 activatedRune1 = true;
                 currentSprite.sprite = glyphLit[currentIndex];
-                audioManager.PlaySFX(audioManager.sfx[8]);
             }
         }
     }
@@ -73,7 +72,6 @@ public class Rock1 : MonoBehaviour
             {
                 activatedRune2 = true;
                 currentSprite.sprite = glyphLit[currentIndex];
-                audioManager.PlaySFX(audioManager.sfx[8]);
             }
         }
     }
@@ -96,14 +94,12 @@ public class Rock1 : MonoBehaviour
 
             if (currentIndex != 2)
             {
-                activatedRune3 = false;
-            }
+                activatedRune3 = false;          }
 
             else
             {
                 activatedRune3 = true;
                 currentSprite.sprite = glyphLit[currentIndex];
-                audioManager.PlaySFX(audioManager.sfx[8]);
             }
         }
     }

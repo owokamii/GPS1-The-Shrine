@@ -9,9 +9,11 @@ public class LevelController : MonoBehaviour
     [SerializeField] private AudioSource heartbeatSoundEffect;
 
     private PlayerHealth _playerHealth; // Reference to the PlayerHealth component
+    AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         _playerHealth = FindObjectOfType<PlayerHealth>(); // Find the PlayerHealth component in the scene
     }
 
@@ -26,7 +28,7 @@ public class LevelController : MonoBehaviour
     {
         if (_playerHealth != null && _playerHealth._currentThirst <= 40)
         {
-            heartbeatSoundEffect.Play();
+            audioManager.PlaySFX(audioManager.sfx[9]);
             _flashImage.StartFlash(.5f, .5f, _newColor);
         }
     }

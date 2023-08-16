@@ -12,7 +12,6 @@ public class FlashImage : MonoBehaviour
 
     private void Awake()
     {
-        
         _image = GetComponent<Image>();
     }
 
@@ -88,7 +87,6 @@ public class FlashImage : MonoBehaviour
 
             yield return new WaitForSeconds(4f); // Wait for 3 seconds before starting the next flash
         //}
-         //FindObjectOfType<AudioManager>().Play("Heartbeat");
     }
 
 

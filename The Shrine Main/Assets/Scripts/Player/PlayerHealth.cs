@@ -37,20 +37,21 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        
-
         _spawnPoint = transform.position;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
-
     }
 
     void Update()
     {
         if (_currentThirst > _maxThirst)
+        {
             _currentThirst = _maxThirst;
+        }
         else if (_currentThirst < 0)
+        {
             _currentThirst = 0;
+        }
 
         if (gameObject.CompareTag("Player"))
         {
@@ -118,7 +119,7 @@ public class PlayerHealth : MonoBehaviour
     {
         gameObject.tag = "Dead";
         transition.SetTrigger("Start");
-        Invoke("Respawn", 3);
+        Invoke("Respawn", 3f);
     }
 
     void Respawn()

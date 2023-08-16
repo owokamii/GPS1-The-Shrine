@@ -31,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     const float timeBetweenFootsteps = 0.65f;
     float lastPlayedFootstepSoundTime = -timeBetweenFootsteps;
-    const float timeBetweenCrateSound = 0.1f;
-    float lastPlayedCrateSoundTime = -timeBetweenCrateSound;
+    //const float timeBetweenCrateSound = 0.1f;
+    //float lastPlayedCrateSoundTime = -timeBetweenCrateSound;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //if player is not dead
-        if (gameObject.tag != "Dead" && Time.timeScale == 1f)
+        if (gameObject.tag != "Dead" && Time.timeScale != 0)
         {
             _animator.SetBool("Dead", false);
             if (!_isPushing)
@@ -94,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
                     crate.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
                     _isPushing = true;
                     _animator.SetBool("IsPushing", true);
-                    //audioManager.PlaySFX(audioManager.sfx[0]);
                 }
                 else if (Input.GetButtonUp("Grab"))
                 {

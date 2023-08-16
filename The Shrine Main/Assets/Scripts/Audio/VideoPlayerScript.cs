@@ -19,12 +19,14 @@ public class VideoPlayerScript : MonoBehaviour
     // Update is called once per frame
     public void PlayVideo1()
     {
+        _videoPlayer.playbackSpeed = 0.75f;
         _videoPlayer.clip = _video1;
         _videoPlayer.Play();
     }
 
     public void PlayVideo2()
     {
+        _videoPlayer.playbackSpeed = 1f;
         _videoPlayer.clip = _video2;
         _videoPlayer.Play();
     }

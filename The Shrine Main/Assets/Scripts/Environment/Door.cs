@@ -13,7 +13,10 @@ public class Door : MonoBehaviour
 
     public SpriteRenderer doorSprite;
     public Sprite doorOpen;
-    private bool doorSFX = false;
+    public bool doorSFX = false;
+    private bool glyphSFX1 = false;
+    private bool glyphSFX2 = false;
+    private bool glyphSFX3 = false;
 
     AudioManager audioManager;
 
@@ -26,32 +29,47 @@ public class Door : MonoBehaviour
     {
         if (Rune1.activatedRune1)
         {
-            Debug.Log("rune 1 correct");
             doorGlyph[0].sprite = doorGlyphLit[0];
+            if(!glyphSFX1)
+            {
+                GlyphLitSFX();
+                glyphSFX1 = true;
+            }
         }
         else
         {
             doorGlyph[0].sprite = doorGlyphUnlit[0];
+            glyphSFX1 = false;
         }
 
         if (Rune2.activatedRune2)
         {
-            Debug.Log("rune 2 correct");
             doorGlyph[1].sprite = doorGlyphLit[1];
+            if (!glyphSFX2)
+            {
+                GlyphLitSFX();
+                glyphSFX2 = true;
+            }
         }
         else
         {
             doorGlyph[1].sprite = doorGlyphUnlit[1];
+            glyphSFX2 = false;
         }
 
         if (Rune3.activatedRune3)
         {
-            Debug.Log("rune 3 correct");
             doorGlyph[2].sprite = doorGlyphLit[2];
+            if (!glyphSFX3)
+            {
+                GlyphLitSFX();
+                glyphSFX3 = true;
+            }
         }
         else
         {
             doorGlyph[2].sprite = doorGlyphUnlit[2];
+            glyphSFX3 = false;
         }
 
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
@@ -61,14 +79,23 @@ public class Door : MonoBehaviour
 
             if(!doorSFX)
             {
-                Invoke("DoorSFX", 1);
+                Invoke("DoorSFX", 0.5f);
                 doorSFX = true;
             }
+        }
+        else
+        {
+            doorSFX = false;
         }
     }
 
     void DoorSFX()
     {
-        audioManager.PlaySFX(audioManager.sfx[9]);
+        audioManager.PlaySFX(audioManager.sfx[11]);
+    }
+
+    void GlyphLitSFX()
+    {
+        audioManager.PlaySFX(audioManager.sfx[8]);
     }
 }

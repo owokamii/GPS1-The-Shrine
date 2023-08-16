@@ -6,6 +6,7 @@ public class InteractObject : MonoBehaviour
     public UnityEvent _interactAction;
     public KeyCode _interactKey;
     public SpriteRenderer sprite;
+    public Door door;
 
     bool isTriggered = false;
 
@@ -28,16 +29,18 @@ public class InteractObject : MonoBehaviour
         {
             if (Input.GetKeyDown(_interactKey))
             {
-                _interactAction.Invoke();
                 if (isWater)
                 {
-                    audioManager.PlaySFX(audioManager.sfx[5]);
+                    _interactAction.Invoke();
+                    Invoke("DrinkWaterSFX", 0.3f);
+                    audioManager.PlaySFX(audioManager.sfx[12]);
                     sprite.enabled = false;
                     isTriggered = true;
                     _inRange = false;
                 }
                 if (isTrapdoor)
                 {
+                    _interactAction.Invoke();
                     audioManager.PlaySFX(audioManager.sfx[6]);
                     sprite.enabled = false;
                     isTriggered = true;
@@ -45,9 +48,11 @@ public class InteractObject : MonoBehaviour
                 }
 
                 if (isGlyphStone)
-                    audioManager.PlaySFX(audioManager.sfx[7]);
-
-                _interactAction.Invoke();
+                    if(!door.doorSFX)
+                    {
+                        _interactAction.Invoke();
+                        audioManager.PlaySFX(audioManager.sfx[7]);
+                    }
             }
         }
 
@@ -79,5 +84,9 @@ public class InteractObject : MonoBehaviour
         isTriggered = false;
     }
 
+    void DrinkWaterSFX()
+    {
+        audioManager.PlaySFX(audioManager.sfx[5]);
+    }
 
 }

@@ -18,7 +18,6 @@ public class PressurePlate : MonoBehaviour
         if(collision.transform.name == "Asher")
         {
             collision.transform.parent = transform;
-            GetComponent<SpriteRenderer>().color = Color.red;
 
             swingingBoulder.bodyType = RigidbodyType2D.Dynamic;
         }
@@ -39,7 +38,6 @@ public class PressurePlate : MonoBehaviour
         {
             moveBack = true;
             collision.transform.parent = null;
-            GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 
