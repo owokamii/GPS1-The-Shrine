@@ -109,14 +109,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7188186914143818432}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.053, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7452787131245887880}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!198 &1474072883508773990
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -125,14 +125,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7188186914143818432}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -200,7 +200,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.64
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -253,7 +253,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -692,7 +692,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.7
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -746,7 +746,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 0.5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -832,7 +832,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.4
       mode: 0
       spread: 0
       speed:
@@ -1057,7 +1057,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1068,22 +1068,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: -0.87550193
-          outSlope: -0.87550193
+          value: 0.5265281
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.18577981
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: -0.94554204
-          outSlope: -0.94554204
+          value: 1
+          inSlope: 0.10227259
+          outSlope: 0.10227259
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.11467892
-          outWeight: 0.33333334
+          inWeight: 0.18518525
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -1389,9 +1389,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 0.51023495, g: 0.6534559, b: 0.735849, a: 1}
+        key1: {r: 0.50980395, g: 0.654902, b: 0.7372549, a: 1}
+        key2: {r: 0.50980395, g: 0.654902, b: 0.7372549, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1399,7 +1399,7 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
         ctime1: 65535
-        ctime2: 0
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -3304,7 +3304,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -3464,7 +3464,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    range: {x: 0, y: 1}
+    range: {x: 0, y: 10}
     separateAxes: 0
   RotationBySpeedModule:
     enabled: 0
@@ -4845,7 +4845,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4863,8 +4863,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -640922287
-  m_SortingLayer: 6
+  m_SortingLayerID: 633632093
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5094,8 +5094,8 @@ MonoBehaviour:
     m_Bits: 640
   _groundCheck: {fileID: 7452787132114288402}
   _ceilingCheck: {fileID: 7452787131151244171}
-  _neckCheck: {fileID: 0}
   _crouchDisableCollider: {fileID: 7452787131245887872}
+  _shadow: {fileID: 0}
   _movementSmoothing: 0.05
   _crouchSpeed: 0.4
   _jumpForce: 1200
@@ -5134,7 +5134,6 @@ MonoBehaviour:
   _controller: {fileID: 7452787131245887887}
   _rb: {fileID: 7452787131245887886}
   _animator: {fileID: 7452787131245887877}
-  _shadow: {fileID: 1706633146995217945}
   _crateMask:
     serializedVersion: 2
     m_Bits: 640
@@ -5155,6 +5154,25 @@ MonoBehaviour:
   sweat: {fileID: 1474072883508773990}
   transition: {fileID: 3215674261237988828, guid: 28a833ea94152fc49ae3f3f44249f327, type: 3}
   _thirstBar: {fileID: 1571072231526474380, guid: b385c740c97a2104781d527db8fd9425, type: 3}
+  checkpoint: {fileID: 0}
+  waterVase1: {fileID: 0}
+  waterVase2: {fileID: 0}
+  waterVase3: {fileID: 0}
+  waterVase4: {fileID: 0}
+  waterVase5: {fileID: 0}
+  waterVase6: {fileID: 0}
+  waterVase7: {fileID: 0}
+  waterPond1: {fileID: 0}
+  waterPond2: {fileID: 0}
+  waterPond3: {fileID: 0}
+  waterPond4: {fileID: 0}
+  waterPond5: {fileID: 0}
+  waterPond6: {fileID: 0}
+  waterPond7: {fileID: 0}
+  waterPond8: {fileID: 0}
+  waterPond9: {fileID: 0}
+  waterPond10: {fileID: 0}
+  waterPond11: {fileID: 0}
 --- !u!114 &7452787131245887876
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,14 +84,17 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Enemy"))
+        if(!gameObject.CompareTag("Dead"))
         {
-            Die();
-        }
+            if (collision.gameObject.CompareTag("Obstacles") || collision.gameObject.CompareTag("Enemy"))
+            {
+                Die();
+            }
 
-        if (collision.transform.tag == "Checkpoint")
-        {
-            _spawnPoint = transform.position;
+            if (collision.transform.tag == "Checkpoint")
+            {
+                _spawnPoint = transform.position;
+            }
         }
     }
 

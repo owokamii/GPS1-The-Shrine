@@ -11,8 +11,8 @@ public class Door : MonoBehaviour
     public Sprite[] doorGlyphUnlit;
     public Sprite[] doorGlyphLit;
 
-    public SpriteRenderer doorSprite;
-    public Sprite doorOpen;
+    public Animator animator;
+    public ParticleSystem dust;
     public bool doorSFX = false;
     private bool glyphSFX1 = false;
     private bool glyphSFX2 = false;
@@ -74,12 +74,13 @@ public class Door : MonoBehaviour
 
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
         {
-            doorSprite.sprite = doorOpen;
             levelLoader.SetActive(true);
+            animator.SetBool("TempleDoorUnlocked", true);
 
-            if(!doorSFX)
+            if (!doorSFX)
             {
-                Invoke("DoorSFX", 0.5f);
+                audioManager.PlaySFX(audioManager.sfx[11]);
+                CreateDust();
                 doorSFX = true;
             }
         }
@@ -89,13 +90,19 @@ public class Door : MonoBehaviour
         }
     }
 
-    void DoorSFX()
-    {
-        audioManager.PlaySFX(audioManager.sfx[11]);
-    }
-
     void GlyphLitSFX()
     {
         audioManager.PlaySFX(audioManager.sfx[8]);
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
+        Invoke("StopDust", 2.5f);
+    }
+
+    void StopDust()
+    {
+        dust.Stop();
     }
 }

@@ -51,9 +51,10 @@ public class hide : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Dead"))
         {
-            gameObject.tag = "DeadDead";
+            Debug.Log("detected player");
             animator.SetBool("Bite", true);
-            Invoke("Respawn", 1);
+            Invoke("StopBiting", 0.5f);
+            Invoke("Respawn", 3);
             
         }
     }
@@ -77,6 +78,12 @@ public class hide : MonoBehaviour
             moveSpeed = 5.3f;
         else
             moveSpeed = 4f;
+    }
+
+    void StopBiting()
+    {
+        animator.SetBool("Bite", false);
+        moveSpeed = 0f;
     }
 
     void SlitherBack()
