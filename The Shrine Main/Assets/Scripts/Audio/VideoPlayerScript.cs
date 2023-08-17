@@ -9,11 +9,14 @@ public class VideoPlayerScript : MonoBehaviour
     public VideoClip _video1;
     public VideoClip _video2;
 
+    public float timeTaken1;
+    public float timeTaken2;
+
     void Start()
     {
         _videoPlayer = GetComponent<VideoPlayer>();
-        Invoke("PlayVideo1", 7f);
-        Invoke("PlayVideo2", 23.6f);
+        Invoke("PlayVideo1", timeTaken1);
+        Invoke("PlayVideo2", timeTaken2);
     }
 
     // Update is called once per frame

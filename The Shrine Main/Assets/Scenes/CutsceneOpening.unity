@@ -1317,6 +1317,8 @@ MonoBehaviour:
   _videoPlayer: {fileID: 1094954692}
   _video1: {fileID: 32900000, guid: 8ace6712843a04242af3834e7529ce8f, type: 3}
   _video2: {fileID: 32900000, guid: 6d74c908b4ad1104b9e61f6f433efde4, type: 3}
+  timeTaken1: 7
+  timeTaken2: 23.6
 --- !u!1 &1275003355
 GameObject:
   m_ObjectHideFlags: 0
