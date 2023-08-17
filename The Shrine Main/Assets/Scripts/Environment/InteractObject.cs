@@ -57,6 +57,7 @@ public class InteractObject : MonoBehaviour
                 if(isTorch)
                 {
                     _interactAction.Invoke();
+                    audioManager.PlaySFX(audioManager.sfx[5]);
                 }
             }
         }

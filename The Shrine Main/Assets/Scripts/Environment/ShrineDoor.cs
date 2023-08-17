@@ -2,10 +2,22 @@ using UnityEngine;
 
 public class ShrineDoor : MonoBehaviour
 {
-    public Torch torch;
+    public GameObject Door;
+    public Torch[] torch;
     public GameObject[] torches;
     int pos, pos1, pos2, pos3, pos4, order = 0;
     bool torch1Triggered, torch2Triggered, torch3Triggered, torch4Triggered;
+    bool shrineDoorTriggered;
+    public Transform target;
+    public ParticleSystem dust;
+    float doorSpeed = 1.1f;
+
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Update()
     {
@@ -14,7 +26,7 @@ public class ShrineDoor : MonoBehaviour
         Torch torch3 = torches[2].GetComponent<Torch>();
         Torch torch4 = torches[3].GetComponent<Torch>();
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("pos 1: " + pos1);
             Debug.Log("pos 2: " + pos2);
@@ -60,112 +72,55 @@ public class ShrineDoor : MonoBehaviour
                     torch1Triggered = true;
                 }
             }
-            
-            if(torch1Triggered && torch2Triggered && torch3Triggered && torch4Triggered)
+
+            if (torch1Triggered && torch2Triggered && torch3Triggered && torch4Triggered)
             {
                 if (pos3 == 3 && pos2 == 2 && pos4 == 4 && pos1 == 1)
                 {
                     Debug.Log("everything correct");
-                    pos1 = pos2 = pos3 = pos4 = order = 0;
-                    torch1Triggered = false;
-                    torch2Triggered = false;
-                    torch3Triggered = false;
-                    torch4Triggered = false;
-
-                    torch1.isTriggered = false;
-                    torch2.isTriggered = false;
-                    torch3.isTriggered = false;
-                    torch4.isTriggered = false;
-                    torch.TriggerTorch();
-
-                }
-            }
-
-/*            if (torch2.isTriggered)
-            {
-                Debug.Log("correct2");
-            }
-            if (torch4.isTriggered)
-            {
-                Debug.Log("correct4");
-            }
-            if (torch1.isTriggered)
-            {
-                Debug.Log("correct1");
-            }*/
-
-            /*if(order == 3)
-            {
-                order++;
-                if(pos2 == 2)
-                {
-                    if(pos3 == 4)
+                    Door.SetActive(true);
+                    Vector3 closed = transform.position;
+                    Vector3 opened = target.position;
+                    float ds = doorSpeed * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(closed, opened, ds); //0.0054
+                    if(!shrineDoorTriggered)
                     {
-                        if(pos4 == 1)
-                        {
-
-                        }
+                        audioManager.PlaySFX(audioManager.sfx[6]);
+                        CreateDust();
+                        shrineDoorTriggered = true;
                     }
+
                 }
-            }*/
+                else
+                {
+                    ResetTorchPuzzle();
+                    pos1 = pos2 = pos3 = pos4 = order = 0;
+                }
+
+            }
         }
     }
 
-    /* void Update()
-     {
-         if (torch.)
-         {
-             doorGlyph[0].sprite = doorGlyphLit[0];
-             if (!glyphSFX1)
-             {
-                 GlyphLitSFX();
-                 glyphSFX1 = true;
-             }
-         }
-         else
-         {
-             doorGlyph[0].sprite = doorGlyphUnlit[0];
-             glyphSFX1 = false;
-         }
+    void ResetTorchPuzzle()
+    {
+        torch[0].TriggerTorch();
+        torch[1].TriggerTorch();
+        torch[2].TriggerTorch();
+        torch[3].TriggerTorch();
+        torch1Triggered = false;
+        torch2Triggered = false;
+        torch3Triggered = false;
+        torch4Triggered = false;
+    }
 
-         if (Rune2.activatedRune2)
-         {
-             doorGlyph[1].sprite = doorGlyphLit[1];
-             if (!glyphSFX2)
-             {
-                 GlyphLitSFX();
-                 glyphSFX2 = true;
-             }
-         }
-         else
-         {
-             doorGlyph[1].sprite = doorGlyphUnlit[1];
-             glyphSFX2 = false;
-         }
+    void CreateDust()
+    {
+        dust.Play();
+        Invoke("StopDust", 5f);
+    }
 
-         if (Rune3.activatedRune3)
-         {
-             doorGlyph[2].sprite = doorGlyphLit[2];
-             if (!glyphSFX3)
-             {
-                 GlyphLitSFX();
-                 glyphSFX3 = true;
-             }
-         }
-         else
-         {
-             doorGlyph[2].sprite = doorGlyphUnlit[2];
-             glyphSFX3 = false;
-         }
-         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
-         {
-             doorSprite.sprite = doorOpen;
-             door.enabled = false;
-
-             if (!doorSFX)
-             {
-                 Invoke("DoorSFX", 0.5f);
-                 doorSFX = true;
-             }
-         }*/
+    void StopDust()
+    {
+        dust.Stop();
+    }
 }

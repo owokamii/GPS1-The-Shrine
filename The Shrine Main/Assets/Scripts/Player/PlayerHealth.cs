@@ -120,6 +120,10 @@ public class PlayerHealth : MonoBehaviour
         gameObject.tag = "Dead";
         transition.SetTrigger("Start");
         Invoke("Respawn", 3f);
+        if(SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            Invoke("RestartLevel", 3);
+        }
     }
 
     void Respawn()
@@ -203,5 +207,10 @@ public class PlayerHealth : MonoBehaviour
         transform.position = _spawnPoint;
         _currentThirst = _maxThirst;
         _thirstBar.SetMaxThirst(_maxThirst);
+    }
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

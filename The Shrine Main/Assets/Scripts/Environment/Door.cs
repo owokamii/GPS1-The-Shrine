@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public BoxCollider2D door;
+    public GameObject levelLoader;
     public Rock1 Rune1;
     public Rock1 Rune2;
     public Rock1 Rune3;
@@ -75,7 +75,7 @@ public class Door : MonoBehaviour
         if (Rune1.activatedRune1 && Rune2.activatedRune2 && Rune3.activatedRune3)
         {
             doorSprite.sprite = doorOpen;
-            door.enabled = false;
+            levelLoader.SetActive(true);
 
             if(!doorSFX)
             {
