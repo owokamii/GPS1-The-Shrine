@@ -17,6 +17,7 @@ public class InteractObject : MonoBehaviour
     public bool isWater;
     public bool isTrapdoor;
     public bool isGlyphStone;
+    public bool isTorch;
 
     private void Awake()
     {
@@ -53,6 +54,10 @@ public class InteractObject : MonoBehaviour
                         _interactAction.Invoke();
                         audioManager.PlaySFX(audioManager.sfx[7]);
                     }
+                if(isTorch)
+                {
+                    _interactAction.Invoke();
+                }
             }
         }
 

@@ -9,17 +9,17 @@ public class LightFlicker : MonoBehaviour
 
     private float time;
     private float startingIntensity;
-    private Light2D light;
+    private Light2D torchLight;
 
-    private void Start()
+    void Start()
     {
-        light = GetComponent<Light2D>();
-        startingIntensity = light.intensity;
+        torchLight = GetComponent<Light2D>();
+        startingIntensity = torchLight.intensity;
     }
 
-    private void Update()
+    void Update()
     {
         time += Time.deltaTime * (1 - Random.Range(-speedRandomness, speedRandomness)) * Mathf.PI;
-        light.intensity = startingIntensity + Mathf.Sin(time * flickerPerSecond) * flickerIntensity;
+        torchLight.intensity = startingIntensity + Mathf.Sin(time * flickerPerSecond) * flickerIntensity;
     }
 }
