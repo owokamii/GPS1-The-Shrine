@@ -16498,7 +16498,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6320754, g: 0.48176402, b: 0.20572266, a: 0.29411766}
+  m_Color: {r: 0.8396226, g: 0.66950184, b: 0.30495724, a: 0.19607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17511,6 +17511,7 @@ GameObject:
   - component: {fileID: 1226878964}
   - component: {fileID: 1226878963}
   - component: {fileID: 1226878965}
+  - component: {fileID: 1226878966}
   m_Layer: 0
   m_Name: Level1Camera
   m_TagString: Untagged
@@ -17594,6 +17595,19 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 296235651}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &1226878966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226878962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c65b75b6127b42439a331421afbd44e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urp2D: {fileID: 11400000, guid: 5c239c7491e166649af157b902938cd4, type: 2}
 --- !u!1 &1234005327
 GameObject:
   m_ObjectHideFlags: 0
@@ -29133,7 +29147,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6320754, g: 0.48176402, b: 0.20572266, a: 0.078431375}
+  m_Color: {r: 0.735849, g: 0.54397494, b: 0.114542544, a: 0.078431375}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
